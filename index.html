@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link rel="stylesheet" href="estilos/style.css"> -->
+    <link rel="stylesheet" href="" media="print">
+    <!-- <script src="javascript/funcoes.js"></script> -->
+    <title>Açaíteria Jardins</title>
+</head>
+<style>
+    *{margin: 0; padding: 0;}
+    body{
+        max-width: 480px;
+        margin: auto;
+        background-color: #6441AB;
+        font-family: Arial, Helvetica, sans-serif;
+        
+    }
+    header{
+        background-color: #FFDE59;
+        position: fixed;
+        width: 100%;
+        left: 0;
+        /* padding-top: 10px; */
+        z-index: 99;
+    }
+    nav{
+        max-width: 480px;
+        margin: auto;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        padding: 10px;
+    }
+    nav button{
+        position: absolute;
+        top: 50%;
+        right: 20px;
+        transform: translateY(-50%);
+    }
+    h1{
+        font-size: 1.5em;
+    }
+    h2{
+        font-size: 1.2em;
+    }
+    #logo{
+        display: grid;
+    }
+    main{
+        /* background-image: url(imagens/MENU.png); */
+        /*background-position: center; */
+        background-color: rgb(207, 189, 216);
+        background-size: contain;
+        background-repeat: no-repeat;
+        padding-top: 100px;
+        width: 100%;
+        min-height: 100vh;
+        box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.3);
+    }
+    
+    section{
+        padding: 10px;
+    }
+    #cardapio {
+        display: block;
+    }
+    #cardapio ul{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
+    #cardapio li{
+        position: relative;
+        /* background-color: aquamarine; */
+        margin: 10px;
+        font-weight: bold;
+        text-align: center;
+    }
+    #cardapio img{
+        width: 140px;
+        height: 140px;
+        border: 2px solid black;
+        border-radius: 10px;
+        background-color: #6441AB;
+        /* position: relative; */
+    }
+    #cardapio button{
+        width: 60px;
+        height: 30px;
+        font-weight: bold;
+        font-size: 1.5em;
+        text-align: center;
+        position: absolute;
+        top: 120px;
+    }
+    .left{
+        left: 0;
+        background-color: #FFDE59;
+        color: #be0000;
+        border-bottom-left-radius: 10px;
+        border: none;
+        border-bottom: 2px solid black;
+        border-left: 2px solid black;
+    }
+    .right{
+        right: 0;  
+        background-color: #FFDE59;
+        color: #00be00;
+        border-bottom-right-radius: 10px;
+        border: none;
+        border-bottom: 2px solid black;
+        border-right: 2px solid black;
+    }
+    #cardapio input{
+        left: 50%;
+        width: 40px;
+        height: 40px;
+        top: 112px;
+        font-weight: bold;
+        font-size: 1.5em;
+        text-align: center;
+        position: absolute;
+        border-radius: 50%;
+        transform: translateX(-50%);
+        background-color: white;
+        color: #6441AB;
+        
+    }
+    
+    #cardapio p{
+        margin: 10px 0px;
+        width: 140px;
+    }
+
+    ul{
+        list-style: none;
+        padding-inline-start: unset;
+    }
+    .colone{
+        background-color: cadetblue;
+    }
+    .colone button{
+        width: 30px;
+    }
+    .colone input{
+        width: 40px;
+        text-align: center;
+        /* font-size: .9em; */
+        font-weight: bold;
+    }
+    .coltwo{
+        /* columns: 2; */
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
+    .lione{
+        background-color: azure;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 40px;
+        padding: 0px 10px;
+    }
+    .lione input{
+        color: black;
+    }
+    .litwo{
+        background-color: cornsilk;
+        width: 140px;
+        height: 140px;        
+        margin: 10px;
+    }
+
+    footer{
+        background-color: #FFDE59;
+        padding: 20px 10px;
+    }
+</style>
+<body>
+    <header>
+        <nav>
+            <a href="index.html"><img id="logo" src="imagens/logoweb.png" alt="logo"></a>
+            <button id="bt" onclick="newPedido()">FAZER PEDIDO</button>
+        </nav>        
+    </header>
+    <main>
+        <section id="cardapio">
+            <h1>Monte do seu jeito!</h1>
+            <ul>
+                <li>
+                    <img src="imagens/tigela.png" alt="">
+                    <button class="left" onclick="checkTam('-t300')">-</button>                    
+                    <button class="right" onclick="checkTam('+t300')">+</button>
+                    <input type="text" name="" id="t300" disabled>
+                    <p>Tigela de 300ml</p>                    
+                </li>
+                <li>
+                    <img src="imagens/tigela.png" alt="">
+                    <button class="left" onclick="checkTam('-t500')">-</button>                    
+                    <button class="right" onclick="checkTam('+t500')">+</button>
+                    <input type="text" name="" id="t500" disabled>
+                    <p>Tigela de 500ml</p>                    
+                </li>
+                <li>
+                    <img src="imagens/tigela.png" alt="">
+                    <button class="left" onclick="checkTam('-t1000')">-</button>                    
+                    <button class="right" onclick="checkTam('+t1000')">+</button>
+                    <input type="text" name="" id="t1000" disabled>
+                    <p>Tigela de 1 litro</p>                    
+                </li>
+                <li>
+                    <img src="imagens/barca.png" alt="">
+                    <button class="left" onclick="checkTam('-b1000')">-</button>                    
+                    <button class="right" onclick="checkTam('+b1000')">+</button>
+                    <input type="text" name="" id="b1000" disabled>
+                    <p>Barca de 1 litro</p>                    
+                </li>                
+            </ul>
+            <h1>Guaraná do Amazonas</h1>
+            <ul>
+                <li>
+                    <img src="imagens/guara.png" alt="">
+                    <button class="left" onclick="checkTam('-g300')">-</button>
+                    
+                    <button class="right" onclick="checkTam('+g300')">+</button>
+                    <input type="text" name="" id="g300" disabled>
+                    <p>Guaraná do Amazonas de 300ml</p>                    
+                </li>  
+            </ul>
+            
+        </section>
+    </main>
+    <footer>
+        <p>Todo dia é dia de tomar um açaí</p>
+    </footer>   
+<script>
+    document.getElementById('logo').addEventListener('click','alert("oi")')
+     function checkTam(tm){
+        var escolha = tm.substring(1);
+	    var sinal = tm.charAt(0);
+	    var qtd = document.getElementById(escolha).value;
+
+		if(sinal === "+"){                                               
+			document.getElementById(escolha).value =+ qtd+1;
+		}
+		if(sinal === "-" && qtd>0){
+			document.getElementById(escolha).value =+ qtd-1;
+		}
+    }
+
+    function qtdPedido(){
+        var t300 = document.getElementById('t300').value;
+        var t500 = document.getElementById('t500').value;
+        var t1000 = document.getElementById('t1000').value;
+        var b1000 = document.getElementById('b1000').value;
+        var descpedidos = [];
+        
+        if(t300 > 0){
+            for(var t3=0; t3<t300; t3++){
+                descpedidos.push("Tigela de 300ml");
+            }            
+        }
+        if(t500 > 0){
+            for(var t5=0; t5<t500; t5++){
+                descpedidos.push("Tigela de 500ml");
+            }            
+        }
+        if(t1000 > 0){
+            for(var t1=0; t1<t1000; t1++){
+                descpedidos.push("Tigela de 1L");
+            }            
+        }
+        if(b1000 > 0){
+            for(var b1=0; b1<b1000; b1++){
+                descpedidos.push("Barca de 1L");
+            }            
+        }
+        return descpedidos;
+    }
+
+    function formaText(opt,tx){
+
+        if(opt==="juntar"){
+        var txmin = tx.toLowerCase();
+            txsepare = txmin.split(" ");
+
+            newtx = "";
+
+            if(txsepare.length>1){
+                for(var t=0; t<txsepare.length; t++){
+                    newtx += txsepare[t];
+                    
+                }
+                return newtx;
+            }
+            return txmin;
+        }
+                
+    }
+
+
+
+    function newPedido(){
+        // alert(qtdPedido())
+        // var tamanhos = ["Tigela 300ml","Tigela 500ml","Tigela 1L","Barca 1L"];
+        var bases = ["Açaí Tradicional","Creme de Cupuaçu","Creme de Ovomaltine","Creme de Amendoim","Creme de Ninho Trufado","Creme de Morango","Creme de Tapioca","Creme de Oreo"];       
+        var complementos = ["Amendoim","Confetes","Chocoboll","Granola","Castanha","Jujuba","Ovomaltine","Paçoca","Canudo Wafer","Gotas de Chocolate","Leite em pó","Farinha Láctea","Fini","Bis"];
+        var frutas = ["Banana","Morango","Kiwi","Uva"];
+        var coberturas = ["Calda de Chocolate","Calda de Morango","Calda de Uva","Leite Condensado"];
+        var plus = ["Baton","Nutella"];
+        var adicionais = ["Baton","Nutella","Amendoim","Confetes","Chocoboll","Granola","Castanha","Jujuba","Ovomaltine","Paçoca","Canudo Wafer","Gotas de Chocolate","Leite em pó","Farinha Láctea","Fini","Bis","Calda de Chocolate","Calda de Morango","Calda de Uva","Leite Condensado"];
+        // var bt = document.getElementById('bt').setAttribute('style','display:none');
+        var tagmain = document.getElementsByTagName('main')[0];
+        var contbase = 0;
+        var contcomplemento = 0;
+        var contfruta = 0;
+        var contcobertura = 0;
+        var contplus = 0;
+        var contadicional = 0;
+
+        document.getElementById('cardapio').setAttribute('style','display:none');
+/// LAÇO DE CRIAÇÃO DE PEDIDOS ///
+        for(var pd=0; pd<qtdPedido().length; pd++){       
+
+/*
+        var sectiontamanho = document.createElement('section');
+
+        var titletamanho = document.createElement('h2');
+            titletamanho.innerHTML = "o Tamanho";
+            sectiontamanho.appendChild(titletamanho);
+            
+        var ultamanho = document.createElement('ul');
+
+        for(var tam=0; tam<tamanhos.length; tam++){
+
+        var litamanho = document.createElement('li');                
+            litamanho.innerHTML = tamanhos[tam];               
+            litamanho.setAttribute('id','tamanho'+[tam]);
+            ultamanho.appendChild(litamanho);
+        }
+            sectiontamanho.appendChild(ultamanho);
+*/
+       
+/// SEÇÃO DE CREMES ///
+        var sectionbase = document.createElement('section');
+
+        var titlebase = document.createElement('h2');
+        if(qtdPedido()[pd] === qtdPedido()[pd+1]){
+            contbase += 1;
+            titlebase.innerHTML = "Base da "+[contbase]+"ª "+qtdPedido()[pd];
+        }else if(qtdPedido()[pd-1] === qtdPedido()[pd]){
+            contbase += 1;
+            titlebase.innerHTML = "Base da "+[contbase]+"ª "+qtdPedido()[pd];
+            contbase = 0;
+        }
+        else{
+            titlebase.innerHTML = "Base da "+qtdPedido()[pd];
+        }
+            sectionbase.appendChild(titlebase);
+    
+        var ulbase = document.createElement('ul');
+
+        for(var bas=0; bas<bases.length; bas++){
+
+        var libase = document.createElement('li');
+            selbase = document.createElement('input');
+            selbase.setAttribute('type','checkbox');
+            selbase.setAttribute('value',`${'resbase'+pd+bas}`);
+            libase.appendChild(selbase);
+            spanbase = document.createElement('span');                
+            spanbase.innerHTML = bases[bas];
+            libase.appendChild(spanbase);          
+            libase.setAttribute('class',`${'litwo'}`);
+            ulbase.appendChild(libase);
+        }
+            ulbase.setAttribute('class','coltwo');
+            sectionbase.appendChild(ulbase);
+
+
+/// SEÇÃO DE COMPLEMENTOS ///
+        var sectioncomplemento = document.createElement('section');
+
+        var titlecomplemento = document.createElement('h2');
+        if(qtdPedido()[pd] === qtdPedido()[pd+1]){
+            contcomplemento += 1;
+            titlecomplemento.innerHTML = "Complementos da "+[contcomplemento]+"ª "+qtdPedido()[pd];
+        }else if(qtdPedido()[pd-1] === qtdPedido()[pd]){
+            contcomplemento += 1;
+            titlecomplemento.innerHTML = "Complementos da "+[contcomplemento]+"ª "+qtdPedido()[pd];
+            contcomplemento = 0;
+        }
+        else{
+            titlecomplemento.innerHTML = "Complementos da "+qtdPedido()[pd];
+        }
+            // titlecomplemento.innerHTML = "os complementos";
+            sectioncomplemento.appendChild(titlecomplemento);
+            
+        var ulcomplemento = document.createElement('ul');
+
+        for(var comp=0; comp<complementos.length; comp++){
+
+        var licomplemento = document.createElement('li');
+            selcomplemento = document.createElement('input');
+            selcomplemento.setAttribute('type','checkbox');
+            selcomplemento.setAttribute('value',`${'rescomplemento'+pd+comp}`);
+            licomplemento.appendChild(selcomplemento);
+            spancomplemento = document.createElement('span');                               
+            spancomplemento.innerHTML = complementos[comp];
+            licomplemento.appendChild(spancomplemento);               
+            licomplemento.setAttribute('class','litwo');            
+            ulcomplemento.appendChild(licomplemento);
+        }
+            ulcomplemento.setAttribute('class','coltwo');
+            sectioncomplemento.appendChild(ulcomplemento);
+
+
+/// SEÇÃO DE FRUTAS ///
+        var sectionfruta = document.createElement('section');
+
+        var titlefruta = document.createElement('h2');
+        if(qtdPedido()[pd] === qtdPedido()[pd+1]){
+            contfruta += 1;
+            titlefruta.innerHTML = "Fruta da "+[contfruta]+"ª "+qtdPedido()[pd];
+        }else if(qtdPedido()[pd-1] === qtdPedido()[pd]){
+            contfruta += 1;
+            titlefruta.innerHTML = "Fruta da "+[contfruta]+"ª "+qtdPedido()[pd];
+            contfruta = 0;
+        }
+        else{
+            titlefruta.innerHTML = "Fruta da "+qtdPedido()[pd];
+        }
+            // titlefruta.innerHTML = "o fruta";
+            sectionfruta.appendChild(titlefruta);
+            
+        var ulfruta = document.createElement('ul');
+
+        for(var frut=0; frut<frutas.length; frut++){
+
+        var lifruta = document.createElement('li');
+            selfruta = document.createElement('input');
+            selfruta.setAttribute('type','checkbox');
+            selfruta.setAttribute('value','resfruta'+[pd]+[frut]);
+            lifruta.appendChild(selfruta);
+            spanfruta = document.createElement('span');             
+            spanfruta.innerHTML = frutas[frut];  
+            lifruta.appendChild(spanfruta);             
+            lifruta.setAttribute('class','litwo');
+            ulfruta.appendChild(lifruta);
+        }
+            ulfruta.setAttribute('class','coltwo');
+            sectionfruta.appendChild(ulfruta);
+
+
+/// SEÇÃO DE COBERTURAS ///
+        var sectioncobertura = document.createElement('section');
+
+        var titlecobertura = document.createElement('h2');
+        if(qtdPedido()[pd] === qtdPedido()[pd+1]){
+            contcobertura += 1;
+            titlecobertura.innerHTML = "Cobertura da "+[contcobertura]+"ª "+qtdPedido()[pd];
+        }else if(qtdPedido()[pd-1] === qtdPedido()[pd]){
+            contcobertura += 1;
+            titlecobertura.innerHTML = "Cobertura da "+[contcobertura]+"ª "+qtdPedido()[pd];
+            contcobertura = 0;
+        }
+        else{
+            titlecobertura.innerHTML = "Cobertura da "+qtdPedido()[pd];
+        }
+            // titlecobertura.innerHTML = "a cobertura";
+            sectioncobertura.appendChild(titlecobertura);
+            
+        var ulcobertura = document.createElement('ul');
+
+        for(var cob=0; cob<coberturas.length; cob++){
+
+        var licobertura = document.createElement('li');
+            selcobertura = document.createElement('input');
+            selcobertura.setAttribute('type','checkbox');
+            selcobertura.setAttribute('value','rescobertura'+[pd]+[cob]);
+            licobertura.appendChild(selcobertura);
+            spancobertura = document.createElement('span');             
+            spancobertura.innerHTML = coberturas[cob];  
+            licobertura.appendChild(spancobertura);             
+            licobertura.setAttribute('class','litwo');              
+            licobertura.setAttribute('id','cobertura'+[pd]+[cob]);
+            ulcobertura.appendChild(licobertura);
+        }
+            ulcobertura.setAttribute('class','coltwo')
+            sectioncobertura.appendChild(ulcobertura);
+
+/// SEÇÃO DE PLUS+ ///
+    if(qtdPedido()[pd] === "Barca de 1L"){
+        var sectionplus = document.createElement('section');
+
+        var titleplus = document.createElement('h2');
+        if(qtdPedido()[pd] === qtdPedido()[pd+1]){
+            contplus += 1;
+            titleplus.innerHTML = "Plus+ da "+[contplus]+"ª "+qtdPedido()[pd];
+        }else if(qtdPedido()[pd-1] === qtdPedido()[pd]){
+            contplus += 1;
+            titleplus.innerHTML = "Plus+ da "+[contplus]+"ª "+qtdPedido()[pd];
+            contbase = 0;
+        }
+        else{
+            titleplus.innerHTML = "Plus+ da "+qtdPedido()[pd];
+        }
+            // titleplus.innerHTML = "o plus";
+            sectionplus.appendChild(titleplus);
+    
+        var ulplus = document.createElement('ul');
+
+        for(var p=0; p<plus.length; p++){
+
+        var liplus = document.createElement('li');
+            selplus = document.createElement('input');
+            selplus.setAttribute('type','checkbox');
+            selplus.setAttribute('value','resplus'+[pd]+[p]);
+            liplus.appendChild(selplus);
+            spanplus = document.createElement('span');             
+            spanplus.innerHTML = plus[p];  
+            liplus.appendChild(spanplus);             
+            liplus.setAttribute('class','litwo');                              
+            liplus.setAttribute('id','plus'+[pd]+[p]);
+            ulplus.appendChild(liplus);
+        }
+            ulplus.setAttribute('class','coltwo');
+            sectionplus.appendChild(ulplus);
+    }
+
+/// SEÇÃO DE ADICIONAIS ///
+        var sectionadicional = document.createElement('section');
+
+        var titleadicional = document.createElement('h2');
+        if(qtdPedido()[pd] === qtdPedido()[pd+1]){
+            contadicional += 1;
+            titleadicional.innerHTML = "Adicionais da "+[contadicional]+"ª "+qtdPedido()[pd];
+        }else if(qtdPedido()[pd-1] === qtdPedido()[pd]){
+            contadicional += 1;
+            titleadicional.innerHTML = "Adicionais da "+[contadicional]+"ª "+qtdPedido()[pd];
+            contadicional = 0;
+        }
+        else{
+            titleadicional.innerHTML = "Adicionais da "+qtdPedido()[pd];
+        }
+            // titleadicional.innerHTML = "o adicional";
+            sectionadicional.appendChild(titleadicional);
+    
+        var uladicional = document.createElement('ul');
+
+        for(var ad=0; ad<adicionais.length; ad++){
+
+        var liadicional = document.createElement('li');
+            spanadicional = document.createElement('span');               
+            spanadicional.innerHTML = adicionais[ad];
+            liadicional.appendChild(spanadicional);
+            respanadd = document.createElement('span');
+            respanadd.setAttribute('id','respanadd'+[pd]+[ad]);
+            liadicional.appendChild(respanadd);
+            btmenosad = document.createElement('button');
+            btmenosad.setAttribute('onclick',`checkTam('${formaText('juntar','-add'+adicionais[ad]+[pd]+[ad])}')`);
+            btmenosad.innerHTML = "-";
+            respanadd.appendChild(btmenosad);
+            resinputad = document.createElement('input');
+            resinputad.setAttribute('type','text');
+            resinputad.setAttribute('id',`${formaText('juntar','add'+adicionais[ad]+[pd]+[ad])}`);
+            
+            resinputad.disabled = true;
+            respanadd.appendChild(resinputad);
+            btmaisad = document.createElement('button');
+            btmaisad.setAttribute('onclick',`checkTam('${formaText('juntar','+add'+adicionais[ad]+[pd]+[ad])}')`);
+            btmaisad.innerHTML = "+";
+            respanadd.appendChild(btmaisad);
+            liadicional.setAttribute('class','lione');
+            uladicional.appendChild(liadicional);
+        }
+            uladicional.setAttribute('class','colone');
+            sectionadicional.appendChild(uladicional);
+
+               
+
+            // tagmain.appendChild(sectiontamanho);
+            tagmain.appendChild(sectionbase);
+            tagmain.appendChild(sectioncomplemento);
+            tagmain.appendChild(sectionfruta);
+            tagmain.appendChild(sectioncobertura);
+            if(qtdPedido()[pd] === "Barca de 1L"){
+            tagmain.appendChild(sectionplus);
+            }
+            tagmain.appendChild(sectionadicional);
+        }    // alert(tagmain)
+    }
+    
+</script>
+</body>
+</html>
+
+
