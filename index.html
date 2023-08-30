@@ -888,14 +888,13 @@
         }else{
             saudacao = "Boa noite";
         }
-console.log(hora);
+
         let resumo = "";
 
         for(let r in qtdPedido()){
             resumo += `${qtdPedido()[r]}%0A`;
         }
-        console.log(resumo);
-
+	    
         let res = document.getElementsByClassName('send');
         let resmsg = [`https://wa.me/${tel}?text=${saudacao}, Açaíteria Jardins!%0AEsse é o meu pedido:%0A`,`${resumo}%0A`];
         let msg = "";
