@@ -4,13 +4,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- <link rel="stylesheet" href="estilos/style.css"> -->
-    <link rel="stylesheet" href="" media="print">
-    <!-- <script src="javascript/funcoes.js"></script> -->
     <title>Açaíteria Jardins</title>
 </head>
 <style>
-    *{margin: 0; padding: 0;}
+*{margin: 0; padding: 0;}
     body{
         max-width: 480px;
         margin: auto;
@@ -23,8 +20,9 @@
         position: fixed;
         width: 100%;
         left: 0;
-        /* padding-top: 10px; */
         z-index: 99;
+        box-shadow: 0px 2px 5px #00000030;
+
     }
     nav{
         max-width: 480px;
@@ -35,37 +33,56 @@
         padding: 10px;
     }
     nav button{
+        background-color: #631658;
+        font-weight: bold;
+        color: white;
+        border-radius: 5px;
+        border: none;
         position: absolute;
         top: 50%;
         right: 20px;
+        padding: 10px;
+        display: none;
         transform: translateY(-50%);
     }
     h1{
         font-size: 1.5em;
     }
     h2{
+        margin: 5px 0px 2px 0px;
         font-size: 1.2em;
+    }
+    section>p{
+        font-size: .9em;
     }
     #logo{
         display: grid;
     }
     main{
-        /* background-image: url(imagens/MENU.png); */
-        /*background-position: center; */
         background-color: rgb(207, 189, 216);
         background-size: contain;
         background-repeat: no-repeat;
         padding-top: 100px;
         width: 100%;
-        min-height: 100vh;
+        min-height: 70vh;
         box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.3);
+    }
+
+    main > button{
+        background-color: #631658;
+        color: white;
+        font-weight: bold;
+        padding: 10px;
+        margin: 0px 0px 10px 10px;
+        border: none;
+        border-radius: 5px;
     }
     
     section{
         padding: 10px;
     }
-    #cardapio {
-        display: block;
+    #cardapio{
+        display: none;
     }
     #cardapio ul{
         display: flex;
@@ -74,7 +91,6 @@
     }
     #cardapio li{
         position: relative;
-        /* background-color: aquamarine; */
         margin: 10px;
         font-weight: bold;
         text-align: center;
@@ -84,22 +100,18 @@
         height: 140px;
         border: 2px solid black;
         border-radius: 10px;
-        background-color: #6441AB;
-        /* position: relative; */
+        background-color: #631658;
     }
     #cardapio button{
         width: 60px;
         height: 30px;
-        font-weight: bold;
-        font-size: 1.5em;
-        text-align: center;
         position: absolute;
         top: 120px;
     }
     .left{
         left: 0;
         background-color: #FFDE59;
-        color: #be0000;
+        fill: #be0000;
         border-bottom-left-radius: 10px;
         border: none;
         border-bottom: 2px solid black;
@@ -108,7 +120,7 @@
     .right{
         right: 0;  
         background-color: #FFDE59;
-        color: #00be00;
+        fill: #00be00;
         border-bottom-right-radius: 10px;
         border: none;
         border-bottom: 2px solid black;
@@ -127,7 +139,7 @@
         transform: translateX(-50%);
         background-color: white;
         color: #6441AB;
-        
+        border: 2px solid black;
     }
     
     #cardapio p{
@@ -140,463 +152,1443 @@
         padding-inline-start: unset;
     }
     .colone{
-        background-color: cadetblue;
+        background-color: rgba(95, 158, 160, 0);
     }
     .colone button{
         width: 30px;
-    }
-    .colone input{
-        width: 40px;
-        text-align: center;
-        /* font-size: .9em; */
+        border: none;
+        background-color: transparent;
+        font-size: 1.1em;
         font-weight: bold;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .maisadd{
+        fill: #00be00;
+    }
+    .menosadd{
+        fill: #be0000;
     }
     .coltwo{
-        /* columns: 2; */
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
         justify-content: space-around;
     }
     .lione{
-        background-color: azure;
         display: flex;
         align-items: center;
         justify-content: space-between;
         height: 40px;
         padding: 0px 10px;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        
+    }
+    .lione p{
+        font-size: .7em;
     }
     .lione input{
+        width: 30px;
         color: black;
+        background: none;
+        border: none;
+        font-size: 1em;
+        text-align: center;
+        font-weight: bold;
     }
     .litwo{
-        background-color: cornsilk;
+        background-color: rgba(255, 248, 220, 0.7);
         width: 140px;
         height: 140px;        
         margin: 10px;
+        position: relative;
+        border-radius: 10px;
+        box-shadow: 0px 0px 5px 1px #00000030;
+    }
+    .litwo span{
+        top: 5px;
+        left: 50%;
+        position: absolute;
+        font-size: 12px;
+        text-align: center;
+        width: 100%;
+        transform: translateX(-50%);
+    }
+    input{
+        outline: 0;
+    }
+
+    input[name=nomepedido]{
+        width: calc(100% - 20px);
+        height: 30px;
+        font-size: 1em;
+        padding: 5px 10px;
+        border-radius: 5px;
+        margin: 5px 0px;
+        border: none;
+        box-shadow: 0px 0px 1px 1px #0000003d;
+    }
+    input[name=nomepedido]:focus{
+        box-shadow: 0px 0px 1px 1px #6441AB;
+    }
+
+    input[type=checkbox]{
+        display: none;
+    }
+
+    input[type=checkbox] + label {
+        background-size:cover;
+        background-position:center;
+        background-repeat: no-repeat;
+        height: 140px;
+        width: 140px;        
+        display: flex;
+        border-radius: 10px;
+    }
+    input[type=checkbox]:checked + label {
+        background-color: green;
+        color: white;
+    }
+    input[type=checkbox]:disabled + label {
+        background-color: grey;
+        filter: grayscale(1);
+    }
+/* INÍCIO CREMES */
+    input[value="Açaí Tradicional"] + label {
+        background-image: url(imagens/bases/acaitradicional.png);
+    }
+    input[value="Açaí Tradicional"]:checked + label {
+        background-image: url(imagens/bases/acaitradicional.png);
+    }
+    input[value="Açaí Tradicional"]:disabled + label {
+        background-image: url(imagens/bases/acaitradicional.png);
+    }
+
+    input[value="Creme de Cupuaçu"] + label {
+        background-image: url(imagens/bases/cremedecupuacu.png);
+    }
+    input[value="Creme de Cupuaçu"]:checked + label {
+        background-image: url(imagens/bases/cremedecupuacu.png);
+    }
+    input[value="Creme de Cupuaçu"]:disabled + label {
+        background-image: url(imagens/bases/cremedecupuacu.png);
+    }
+
+    input[value="Creme de Ovomaltine"] + label {
+        background-image: url(imagens/bases/cremedeovomaltine.png);
+    }
+    input[value="Creme de Ovomaltine"]:checked + label {
+        background-image: url(imagens/bases/cremedeovomaltine.png);
+    }
+    input[value="Creme de Ovomaltine"]:disabled + label {
+        background-image: url(imagens/bases/cremedeovomaltine.png);
+    }
+
+    input[value="Creme de Amendoim"] + label {
+        background-image: url(imagens/bases/cremedeamendoim.png);
+    }
+    input[value="Creme de Amendoim"]:checked + label {
+        background-image: url(imagens/bases/cremedeamendoim.png);
+    }
+    input[value="Creme de Amendoim"]:disabled + label {
+        background-image: url(imagens/bases/cremedeamendoim.png);
+    }
+
+    input[value="Creme de Ninho Trufado"] + label {
+        background-image: url(imagens/bases/cremedeninhotrufado.png);
+    }
+    input[value="Creme de Ninho Trufado"]:checked + label {
+        background-image: url(imagens/bases/cremedeninhotrufado.png);
+    }
+    input[value="Creme de Ninho Trufado"]:disabled + label {
+        background-image: url(imagens/bases/cremedeninhotrufado.png);
+    }
+
+    input[value="Creme de Morango"] + label {
+        background-image: url(imagens/bases/cremedemorango.png);
+    }
+    input[value="Creme de Morango"]:checked + label {
+        background-image: url(imagens/bases/cremedemorango.png);
+    }
+    input[value="Creme de Morango"]:disabled + label {
+        background-image: url(imagens/bases/cremedemorango.png);
+    }
+
+    input[value="Creme de Tapioca"] + label {
+        background-image: url(imagens/bases/cremedetapioca.png);
+    }
+    input[value="Creme de Tapioca"]:checked + label {
+        background-image: url(imagens/bases/cremedetapioca.png);
+    }
+    input[value="Creme de Tapioca"]:disabled + label {
+        background-image: url(imagens/bases/cremedetapioca.png);
+    }
+
+    input[value="Creme de Oreo"] + label {
+        background-image: url(imagens/bases/cremedeoreo.png);
+    }
+    input[value="Creme de Oreo"]:checked + label {
+        background-image: url(imagens/bases/cremedeoreo.png);
+    }
+    input[value="Creme de Oreo"]:disabled + label {
+        background-image: url(imagens/bases/cremedeoreo.png);
+    }
+/* FIM BASES */
+
+/* INÍCIO COMPLEMENTOS */
+    input[value="Amendoim"] + label {
+        background-image: url(imagens/complementos/amendoim.png);
+    }
+    input[value="Amendoim"]:checked + label {
+        background-image: url(imagens/complementos/amendoim.png);
+    }
+    input[value="Amendoim"]:disabled + label {
+        background-image: url(imagens/complementos/amendoim.png);
+    }
+
+    input[value="Confetes"] + label {
+        background-image: url(imagens/complementos/confetes.png);
+    }
+    input[value="Confetes"]:checked + label {
+        background-image: url(imagens/complementos/confetes.png);
+    }
+    input[value="Confetes"]:disabled + label {
+        background-image: url(imagens/complementos/confetes.png);
+    }
+
+    input[value="Chocoboll"] + label {
+        background-image: url(imagens/complementos/chocoboll.png);
+    }
+    input[value="Chocoboll"]:checked + label {
+        background-image: url(imagens/complementos/chocoboll.png);
+    }
+    input[value="Chocoboll"]:disabled + label {
+        background-image: url(imagens/complementos/chocoboll.png);
+    }
+
+    input[value="Granola"] + label {
+        background-image: url(imagens/complementos/granola.png);
+    }
+    input[value="Granola"]:checked + label {
+        background-image: url(imagens/complementos/granola.png);
+    }
+    input[value="Granola"]:disabled + label {
+        background-image: url(imagens/complementos/granola.png);
+    }
+
+    input[value="Castanha"] + label {
+        background-image: url(imagens/complementos/castanha.png);
+    }
+    input[value="Castanha"]:checked + label {
+        background-image: url(imagens/complementos/castanha.png);
+    }
+    input[value="Castanha"]:disabled + label {
+        background-image: url(imagens/complementos/castanha.png);
+    }
+
+    input[value="Jujuba"] + label {
+        background-image: url(imagens/complementos/jujuba.png);
+    }
+    input[value="Jujuba"]:checked + label {
+        background-image: url(imagens/complementos/jujuba.png);
+    }
+    input[value="Jujuba"]:disabled + label {
+        background-image: url(imagens/complementos/jujuba.png);
+    }
+
+    input[value="Ovomaltine"] + label {
+        background-image: url(imagens/complementos/ovomaltine.png);
+    }
+    input[value="Ovomaltine"]:checked + label {
+        background-image: url(imagens/complementos/ovomaltine.png);
+    }
+    input[value="Ovomaltine"]:disabled + label {
+        background-image: url(imagens/complementos/ovomaltine.png);
+    }
+
+    input[value="Paçoca"] + label {
+        background-image: url(imagens/complementos/pacoca.png);
+    }
+    input[value="Paçoca"]:checked + label {
+        background-image: url(imagens/complementos/pacoca.png);
+    }
+    input[value="Paçoca"]:disabled + label {
+        background-image: url(imagens/complementos/pacoca.png);
+    }
+
+    input[value="Canudo Wafer"] + label {
+        background-image: url(imagens/complementos/canudoswafer.png);
+    }
+    input[value="Canudo Wafer"]:checked + label {
+        background-image: url(imagens/complementos/canudoswafer.png);
+    }
+    input[value="Canudo Wafer"]:disabled + label {
+        background-image: url(imagens/complementos/canudoswafer.png);
+    }
+
+    input[value="Gotas de Chocolate"] + label {
+        background-image: url(imagens/complementos/gotasdechocolate.png);
+    }
+    input[value="Gotas de Chocolate"]:checked + label {
+        background-image: url(imagens/complementos/gotasdechocolate.png);
+    }
+    input[value="Gotas de Chocolate"]:disabled + label {
+        background-image: url(imagens/complementos/gotasdechocolate.png);
+    }
+
+    input[value="Leite em pó"] + label {
+        background-image: url(imagens/complementos/leiteempo.png);
+    }
+    input[value="Leite em pó"]:checked + label {
+        background-image: url(imagens/complementos/leiteempo.png);
+    }
+    input[value="Leite em pó"]:disabled + label {
+        background-image: url(imagens/complementos/leiteempo.png);
+    }
+
+    input[value="Farinha Láctea"] + label {
+        background-image: url(imagens/complementos/farinhalactea.png);
+    }
+    input[value="Farinha Láctea"]:checked + label {
+        background-image: url(imagens/complementos/farinhalactea.png);
+    }
+    input[value="Farinha Láctea"]:disabled + label {
+        background-image: url(imagens/complementos/farinhalactea.png);
+    }
+
+    input[value="Fini"] + label {
+        background-image: url(imagens/complementos/fini.png);
+    }
+    input[value="Fini"]:checked + label {
+        background-image: url(imagens/complementos/fini.png);
+    }
+    input[value="Fini"]:disabled + label {
+        background-image: url(imagens/complementos/fini.png);
+    }
+
+    input[value="Bis"] + label {
+        background-image: url(imagens/complementos/bis.png);
+    }
+    input[value="Bis"]:checked + label {
+        background-image: url(imagens/complementos/bis.png);
+    }
+    input[value="Bis"]:disabled + label {
+        background-image: url(imagens/complementos/bis.png);
+    }
+/* FIM COMPLEMENTOS */
+
+/* INÍCIO FRUTAS */
+    input[value="Banana"] + label {
+        background-image: url(imagens/frutas/banana.png);
+    }
+    input[value="Banana"]:checked + label {
+        background-image: url(imagens/frutas/banana.png);
+    }
+    input[value="Banana"]:disabled + label {
+        background-image: url(imagens/frutas/banana.png);
+    }
+
+    input[value="Morango"] + label {
+        background-image: url(imagens/frutas/morango.png);
+    }
+    input[value="Morango"]:checked + label {
+        background-image: url(imagens/frutas/morango.png);
+    }
+    input[value="Morango"]:disabled + label {
+        background-image: url(imagens/frutas/morango.png);
+    }
+
+    input[value="Kiwi"] + label {
+        background-image: url(imagens/frutas/kiwi.png);
+    }
+    input[value="Kiwi"]:checked + label {
+        background-image: url(imagens/frutas/kiwi.png);
+    }
+    input[value="Kiwi"]:disabled + label {
+        background-image: url(imagens/frutas/kiwi.png);
+    }
+
+    input[value="Uva"] + label {
+        background-image: url(imagens/frutas/uva.png);
+    }
+    input[value="Uva"]:checked + label {
+        background-image: url(imagens/frutas/uva.png);
+    }
+    input[value="Uva"]:disabled + label {
+        background-image: url(imagens/frutas/uva.png);
+    }
+
+    input[value="Baton"] + label {
+        background-image: url(imagens/complementos/baton.png);
+    }
+    input[value="Baton"]:checked + label {
+        background-image: url(imagens/complementos/baton.png);
+    }
+    input[value="Baton"]:disabled + label {
+        background-image: url(imagens/complementos/baton.png);
+    }
+
+    input[value="Nutella"] + label {
+        background-image: url(imagens/complementos/nutella.png);
+    }
+    input[value="Nutella"]:checked + label {
+        background-image: url(imagens/complementos/nutella.png);
+    }
+    input[value="Nutella"]:disabled + label {
+        background-image: url(imagens/complementos/nutella.png);
+    }
+/* FIM FRUTAS */
+
+/* INÍCIO COBERTURAS */
+    input[value="Calda de Chocolate"] + label {
+        background-image: url(imagens/coberturas/caldadechocolate.png);
+    }
+    input[value="Calda de Chocolate"]:checked + label {
+        background-image: url(imagens/coberturas/caldadechocolate.png);
+    }
+    input[value="Calda de Chocolate"]:disabled + label {
+        background-image: url(imagens/coberturas/caldadechocolate.png);
+    }
+
+    input[value="Calda de Morango"] + label {
+        background-image: url(imagens/coberturas/caldademorango.png);
+    }
+    input[value="Calda de Morango"]:checked + label {
+        background-image: url(imagens/coberturas/caldademorango.png);
+    }
+    input[value="Calda de Morango"]:disabled + label {
+        background-image: url(imagens/coberturas/caldademorango.png);
+    }
+
+    input[value="Calda de Uva"] + label {
+        background-image: url(imagens/coberturas/caldadeuva.png);
+    }
+    input[value="Calda de Uva"]:checked + label {
+        background-image: url(imagens/coberturas/caldadeuva.png);
+    }
+    input[value="Calda de Uva"]:disabled + label {
+        background-image: url(imagens/coberturas/caldadeuva.png);
+    }
+
+    input[value="Leite Condensado"] + label {
+        background-image: url(imagens/coberturas/leitecondensado.png);
+    }
+    input[value="Leite Condensado"]:checked + label {
+        background-image: url(imagens/coberturas/leitecondensado.png);
+    }
+    input[value="Leite Condensado"]:disabled + label {
+        background-image: url(imagens/coberturas/leitecondensado.png);
+    }
+/* FIM COBERTURAS */
+
+/* STYLE MODAL */
+    #modal-bg{
+        background-color: rgba(0, 0, 0, .9);
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 999;
+    }
+
+    .modal-box{
+        background-color: white;
+        position: fixed;
+        margin: auto;
+        border-radius: 5px;
+        top: 25%;
+        left: 50%;
+        width: 80vw;
+        transform: translate(-50%, -25%);
+        animation: 0.5s normal slidein;
+    }
+  
+    @keyframes slidein{
+        from {
+            top: 0%;
+        }
+        to {
+            top: 25%;
+        }
+    }
+ 
+    .modal-content {
+        max-height: 400px;
+        overflow-y: auto;
+        background-color: white;
+        padding: 10px;
+        border-radius: 5px;
+    }
+    .modal-box form{
+        display: none;
+        padding: 10px;    
+    }
+    .modal-header{
+        background-color: #6441AB;
+        color: white;
+        position: relative;
+        text-align: center;
+        padding: 10px 45px 10px 10px;
+        font-size: 1.3em;
+        font-weight: bold;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;        
+    }
+    .modal-close{
+        border-radius: 50%;
+        display: block;
+        position: absolute;
+        width: 35px;
+        height: 35px;
+        line-height: 30px;
+        font-weight: bold;
+        font-size: 18px;
+        text-align: center;
+        padding: 5px;
+        cursor: pointer;
+        top: 0px;
+        left: 100%;
+        transform: translateX(-100%);
+    }
+    .modal-close:hover{
+        color: black;
+    }
+
+    .modal-footer{
+        display: flex;
+        justify-content: center;
+    }
+    .modal-footer a{
+        background-image: url(imagens/whats.png);
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: right;
+        background-color: #0dc143;
+        color: white;
+        border: none;
+        width: 49.8%;
+        font-weight: bold;
+        text-decoration: none;
+        cursor: pointer;  
+        padding: 10px;
+        border-radius: 10px;
+        margin: 0px 0px 10px 0px;
+    }
+    .modal-footer a:hover{
+        background-color: #0bab3b;
+        color: black;
     }
 
     footer{
         background-color: #FFDE59;
         padding: 20px 10px;
+        box-shadow: 0px -1px 5px #00000030;
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+    }
+    footer a{
+        background-image: url(imagens/insta.png);
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: contain;
+        border-radius: 10px;
+        width: 30px;
+        height: 30px;
+    }
+    #menu{
+        background-image: url(imagens/menu.png);
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: top center;
+        background-color: #631658;
+        display: block;
+        left: 0;
+        width: 100%;
+        min-height: 100vh;
+        position: fixed;
+        margin: auto;
+        z-index: 100;
+    }
+
+    #menu button{
+        padding: 10px;
+        position: absolute;
+        font-weight: bold;
+        border: none;
+        border-radius: 5px;
+        color: #6441AB;
+        top: 3%;
+        left: 65%;
+        background-color: #FFDE59;
+        animation: 0.5s linear infinite iniciar;
+        box-shadow: 0px 0px 3px 0px black;
+    }
+
+    @media screen and (min-width: 600px) {
+        #menu button{
+            left: 60%;
+        }
+        .modal-box{
+            width: 60vw;
+        }
+    }
+
+    @keyframes iniciar{
+        0%{
+            background-color: #FFDE59;
+            color: #6441AB;
+        }
+        25%{
+            background-color: #dcbd42;
+            color: #e0d1fe;
+        }
+        50%{
+            background-color: #ceae2e;
+            color: white;
+        }
+        75%{
+            background-color: #dcbd42;
+            color: #e0d1fe;
+        }
+        100%{
+            background-color: #FFDE59;
+            color: #6441AB;
+        }
     }
 </style>
+
 <body>
+    <span id="menu"><button onclick="iniciarPedido()">INICIAR PEDIDO</button></span>
     <header>
         <nav>
-            <a href="index.html"><img id="logo" src="imagens/logoweb.png" alt="logo"></a>
-            <button id="bt" onclick="newPedido()">FAZER PEDIDO</button>
+            <a href="index.html"><img id="logo" width="70" height="70" src="imagens/logo.png" alt="logo"></a>
+            <button id='bt-start-order' onclick="newPedido()">FAZER PEDIDO</button>
         </nav>        
     </header>
     <main>
+        <div id="modal-bg">
+            <div class="modal-box">
+              <div class="modal-header">
+                <span class="modal-title"></span><span class="modal-close">x</span>
+              </div>
+                <div class="modal-content">
+                </div>
+                <div class="modal-footer">
+                    <a target="_blank" id="whats" href="#">Enviar Pedido</a>
+                </div>                
+            </div>
+        </div>
         <section id="cardapio">
             <h1>Monte do seu jeito!</h1>
             <ul>
                 <li>
-                    <img src="imagens/tigela.png" alt="">
-                    <button class="left" onclick="checkTam('-t300')">-</button>                    
-                    <button class="right" onclick="checkTam('+t300')">+</button>
-                    <input type="text" name="" id="t300" disabled>
+                    <img src="imagens/tamanhos/tigela.png" alt="Tigela de 300ml">
+                    <button class="left" onclick="checkQtd('-t300')"><svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M198-421v-118h564v118H198Z"/></svg></button>                    
+                    <button class="right" onclick="checkQtd('+t300')"><svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M421-421H206v-118h215v-215h118v215h215v118H539v215H421v-215Z"/></svg></button>
+                    <input type="text" id="t300" value="0" disabled>
                     <p>Tigela de 300ml</p>                    
                 </li>
                 <li>
-                    <img src="imagens/tigela.png" alt="">
-                    <button class="left" onclick="checkTam('-t500')">-</button>                    
-                    <button class="right" onclick="checkTam('+t500')">+</button>
-                    <input type="text" name="" id="t500" disabled>
+                    <img src="imagens/tamanhos/tigela.png" alt="Tigela de 500ml">
+                    <button class="left" onclick="checkQtd('-t500')"><svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M198-421v-118h564v118H198Z"/></svg></button>                    
+                    <button class="right" onclick="checkQtd('+t500')"><svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M421-421H206v-118h215v-215h118v215h215v118H539v215H421v-215Z"/></svg></button>
+                    <input type="text" id="t500" value="0" disabled>
                     <p>Tigela de 500ml</p>                    
                 </li>
                 <li>
-                    <img src="imagens/tigela.png" alt="">
-                    <button class="left" onclick="checkTam('-t1000')">-</button>                    
-                    <button class="right" onclick="checkTam('+t1000')">+</button>
-                    <input type="text" name="" id="t1000" disabled>
+                    <img src="imagens/tamanhos/tigela.png" alt="Tigela de 1L">
+                    <button class="left" onclick="checkQtd('-t1000')"><svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M198-421v-118h564v118H198Z"/></svg></button>                    
+                    <button class="right" onclick="checkQtd('+t1000')"><svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M421-421H206v-118h215v-215h118v215h215v118H539v215H421v-215Z"/></svg></button>
+                    <input type="text" id="t1000" value="0" disabled>
                     <p>Tigela de 1 litro</p>                    
                 </li>
                 <li>
-                    <img src="imagens/barca.png" alt="">
-                    <button class="left" onclick="checkTam('-b1000')">-</button>                    
-                    <button class="right" onclick="checkTam('+b1000')">+</button>
-                    <input type="text" name="" id="b1000" disabled>
+                    <img src="imagens/tamanhos/barca.png" alt="Barca de 1L">
+                    <button class="left" onclick="checkQtd('-b1000')"><svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M198-421v-118h564v118H198Z"/></svg></button>                    
+                    <button class="right" onclick="checkQtd('+b1000')"><svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M421-421H206v-118h215v-215h118v215h215v118H539v215H421v-215Z"/></svg></button>
+                    <input type="text" id="b1000" value="0" disabled>
                     <p>Barca de 1 litro</p>                    
                 </li>                
             </ul>
             <h1>Guaraná do Amazonas</h1>
             <ul>
                 <li>
-                    <img src="imagens/guara.png" alt="">
-                    <button class="left" onclick="checkTam('-g300')">-</button>
-                    
-                    <button class="right" onclick="checkTam('+g300')">+</button>
-                    <input type="text" name="" id="g300" disabled>
+                    <img src="imagens/tamanhos/guara300.png" alt="Guaraná de 300ml">
+                    <button class="left" onclick="checkQtd('-g300')"><svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M198-421v-118h564v118H198Z"/></svg></button>                    
+                    <button class="right" onclick="checkQtd('+g300')"><svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M421-421H206v-118h215v-215h118v215h215v118H539v215H421v-215Z"/></svg></button>
+                    <input type="text" id="g300" value="0" disabled>
                     <p>Guaraná do Amazonas de 300ml</p>                    
+                </li>
+                <li>
+                    <img src="imagens/tamanhos/guara500.png" alt="Guaraná de 500ml">
+                    <button class="left" onclick="checkQtd('-g500')"><svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M198-421v-118h564v118H198Z"/></svg></button>                    
+                    <button class="right" onclick="checkQtd('+g500')"><svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M421-421H206v-118h215v-215h118v215h215v118H539v215H421v-215Z"/></svg></button>
+                    <input type="text" id="g500" value="0" disabled>
+                    <p>Guaraná do Amazonas de 500ml</p>                    
                 </li>  
             </ul>
             
         </section>
     </main>
     <footer>
-        <p>Todo dia é dia de tomar um açaí</p>
+        <p>Todo dia é dia de tomar um açaí.</p>        
+            <a target="_blank" href="https://instagram.com/acaiteria_jardins"></a>
     </footer>   
 <script>
-    document.getElementById('logo').addEventListener('click','alert("oi")')
-     function checkTam(tm){
-        var escolha = tm.substring(1);
-	    var sinal = tm.charAt(0);
-	    var qtd = document.getElementById(escolha).value;
+    function iniciarPedido(){
+        document.getElementById('menu').setAttribute('style','display:none');
+        document.getElementById('cardapio').setAttribute('style','display:block');
+    }
+    let tagmodal = document.querySelectorAll('div');
+    let btclose = document.querySelector('.modal-close');
+        btclose.addEventListener('click', function(){
+            
+            closeModal();
+        });
 
-		if(sinal === "+"){                                               
-			document.getElementById(escolha).value =+ qtd+1;
-		}
-		if(sinal === "-" && qtd>0){
-			document.getElementById(escolha).value =+ qtd-1;
-		}
+    function openModal(title,info){      
+        document.querySelector('body').setAttribute('style','overflow:hidden');  
+        tagmodal[0].setAttribute('style','display:block');
+        if(title && info){
+            document.querySelector('.modal-title').innerHTML = title;
+            tagmodal[3].innerHTML = info;
+        }
+        tagmodal[2].setAttribute('style','display:block');
+        tagmodal[3].setAttribute('style','display:block');
     }
 
-    function qtdPedido(){
-        var t300 = document.getElementById('t300').value;
-        var t500 = document.getElementById('t500').value;
-        var t1000 = document.getElementById('t1000').value;
-        var b1000 = document.getElementById('b1000').value;
-        var descpedidos = [];
+    function closeModal(){
+        document.querySelector('body').setAttribute('style','overflow:auto');
+        tagmodal[0].setAttribute('style','display:none');
+        if(document.querySelector('.modal-title').innerHTML != "Atenção!"){
+            location.href = "index.html";
+        }
+    }
+
+    function getCheckbox(tipo,ch){
+            return document.querySelectorAll(`[${tipo}$=${ch}]`);
+        }
+
+    function sendPedido(){
+        let data = new Date();
+        let hora = data.getHours();
+        let saudacao = "";
+        let tel = "558491105174";
         
-        if(t300 > 0){
-            for(var t3=0; t3<t300; t3++){
-                descpedidos.push("Tigela de 300ml");
+        if(hora >= 0 && hora < 12){
+            saudacao = "Bom dia";
+        }else if(hora >= 12 && hora < 18){
+            saudacao = "Boa tarde";
+        }else{
+            saudacao = "Boa noite";
+        }
+
+        let resumo = "";
+
+        for(let r in qtdPedido()){
+            resumo += `${qtdPedido()[r]}%0A`;
+        }
+        console.log(resumo);
+
+        let res = document.getElementsByClassName('send');
+        let resmsg = [`https://wa.me/${tel}?text=${saudacao}, Açaíteria Jardins!%0AEsse é o meu pedido:%0A`,`${resumo}%0A`];
+        let msg = "";
+        let whats = document.getElementById('whats');
+
+        for(let s=0; s<res.length; s++){
+            
+            if(res[s].nodeName != 'INPUT'){
+
+                if(res[s].nodeName == 'SPAN'){
+                    let adn = res[s].innerText;
+                    let newadn = adn.split('\n');
+                    resmsg.push(newadn[0]+' ');                   
+                }else{                  
+                    resmsg.push('*'+res[s].innerText+'*%0A');
+                }
+                
+            }else{
+                res[s].value = res[s].value.trim();
+
+                if(s == res.length-1){
+                    resmsg.push(res[s].value);
+                }else{
+                    if(res[s+1].name == 'nomepedido' && res[s].value != ""){
+                        resmsg.push(res[s].value+'%0A%0A');
+                    }else if(res[s].name == 'nomepedido' && res[s].value != ""){
+                        resmsg.push('*Para: '+capitalize(res[s].value)+'*%0A');
+                    }else if(res[s].value != ""){
+                        resmsg.push(res[s].value+'%0A');
+                    }
+                }
+                
             }            
         }
+        for(let n in resmsg){
+            msg += resmsg[n];
+        }
+        if(resmsg.length > 2){
+            whats.setAttribute('href', msg);
+            whats.setAttribute('style','display:block');
+            document.getElementById('bt-generate').setAttribute('style','display:none');
+            openModal("Pedido gerado com sucesso!","Envie o pedido no Whatsapp clicando no botão abaixo");
+        }else{
+            openModal("Atenção!","Escolha os itens do seu pedido.");
+            whats.setAttribute('style','display:none');
+            return false;
+        }
+    }
+
+    function selectRadio(radio){
+        let itens = getCheckbox('name',radio.name);
+        let active = [];
+        let desactive = [];
+        let compname = radio.name;
+
+        if(compname.search('base-tigela') >= 0 || compname.search('cobertura') >= 0){
+            numcheck = 2;
+        }
+        if(compname.search('base-tigelade1l') >= 0 || compname.search('base-barca') >= 0 || compname.search('complemento') >= 0){
+            numcheck = 3;
+        }        
+        if(compname.search('guacob') >= 0 || compname.search('guapac') >= 0 || compname.search('sabor') >= 0 || compname.search('fruta') >= 0 || compname.search('plus') >= 0){
+            numcheck = 1;
+        }
+        
+        for(item of itens){            
+            if(item.checked){
+                active.push(item.id);             
+                document.getElementById(item.id).setAttribute('class','send');
+            }else{
+                desactive.push(item.id);
+                document.getElementById(item.id).removeAttribute('class','send');
+            }  
+        }
+            if(active.length > 0){
+                document.getElementById(compname).setAttribute('class','send');
+            }else{
+                document.getElementById(compname).removeAttribute('class','send');
+            }        
+            if(active.length >= numcheck){                
+                for(let des=0; des<desactive.length; des++){                   
+                    document.getElementById(desactive[des]).setAttribute('disabled','true');           
+                }
+            }else{
+                for(let atv=0; atv<desactive.length; atv++){ 
+                    document.getElementById(desactive[atv]).removeAttribute('disabled','true');        
+                }
+            }
+    
+    }
+
+    function checkQtd(valor){
+        let escolha = valor.substring(1);
+	    let sinal = valor.charAt(0);
+	    let elemento = document.getElementById(escolha);
+        let listadd = document.getElementsByName(elemento.name);
+        let qtd = parseInt(elemento.value);
+        let qtdadd = 0;  
+         
+		if(sinal === "+"){        
+			elemento.value = qtd += 1;
+		}
+        else if(sinal === "-" && qtd > 0){
+            elemento.value = qtd -= 1;            
+		}
+        
+        if(valor.search('add') >= 0){
+            for(let q = 0; q < listadd.length; q++){
+                qtdadd += parseInt(listadd[q].value);                
+            }
+            if(qtdadd > 0){
+                document.getElementById(elemento.name).setAttribute('class','send');
+            }else{
+                document.getElementById(elemento.name).removeAttribute('class','send');
+            }
+            if(qtd > 0){
+                document.getElementById(`tit${escolha}`).setAttribute('class','send');
+                document.getElementById(`-${escolha}`).setAttribute('style','display:flex');
+                elemento.setAttribute('class','send');
+                elemento.setAttribute('style','display:unset');
+            }else{
+                document.getElementById(`tit${escolha}`).removeAttribute('class','send');
+                document.getElementById(`-${escolha}`).setAttribute('style','display:none');
+                elemento.removeAttribute('class','send');
+                elemento.setAttribute('style','display:none');
+            }
+        }
+        
+        if(qtdPedido('desc').length > 0 && document.getElementById('cardapio').style.display != 'none'){
+            document.getElementById('bt-start-order').setAttribute('style','display:unset');
+        }else{
+            document.getElementById('bt-start-order').setAttribute('style','display:none');
+        }
+    }
+
+    function qtdPedido(des){
+        let t300 = document.getElementById('t300').value;
+        let t500 = document.getElementById('t500').value;
+        let t1000 = document.getElementById('t1000').value;
+        let b1000 = document.getElementById('b1000').value;
+        let g300 = document.getElementById('g300').value;
+        let g500 = document.getElementById('g500').value;
+        let descpedidos = [];
+        let qdp = [];
+        
+        if(t300 > 0){
+            for(let t3=0; t3<t300; t3++){
+                descpedidos.push("Tigela de 300ml");
+            }
+            if(t300 > 1){
+                qdp.push(`${t300} Tigelas de 300ml`);
+            }else{
+                qdp.push(`${t300} Tigela de 300ml`);
+            }      
+        }
         if(t500 > 0){
-            for(var t5=0; t5<t500; t5++){
+            for(let t5=0; t5<t500; t5++){
                 descpedidos.push("Tigela de 500ml");
+            }
+            if(t500 > 1){
+                qdp.push(`${t500} Tigelas de 500ml`);
+            }else{
+                qdp.push(`${t500} Tigela de 500ml`);
             }            
         }
         if(t1000 > 0){
-            for(var t1=0; t1<t1000; t1++){
+            for(let t1=0; t1<t1000; t1++){
                 descpedidos.push("Tigela de 1L");
-            }            
+            }
+            if(t1000 > 1){
+                qdp.push(`${t1000} Tigelas de 1L`);
+            }else{
+                qdp.push(`${t1000} Tigela de 1L`);
+            }           
         }
         if(b1000 > 0){
-            for(var b1=0; b1<b1000; b1++){
+            for(let b1=0; b1<b1000; b1++){
                 descpedidos.push("Barca de 1L");
-            }            
+            }
+            if(b1000 > 1){
+                qdp.push(`${b1000} Barcas de 1L`);
+            }else{
+                qdp.push(`${b1000} Barca de 1L`);
+            }             
         }
-        return descpedidos;
+        if(g300 > 0){
+            for(let g3=0; g3<g300; g3++){
+                descpedidos.push("Guaraná de 300ml");
+            }
+            if(g300 > 1){
+                qdp.push(`${g300} Guaranás de 300ml`);
+            }else{
+                qdp.push(`${g300} Guaraná de 300ml`);
+            }  
+        }
+        if(g500 > 0){
+            for(let g5=0; g5<g500; g5++){
+                descpedidos.push("Guaraná de 500ml");
+            }
+            if(g500 > 1){
+                qdp.push(`${g500} Guaranás de 300ml`);
+            }else{
+                qdp.push(`${g500} Guaraná de 300ml`);
+            }  
+        }
+        if(des == "desc"){
+            return descpedidos;
+        }else{
+            return qdp;
+        }
     }
 
     function formaText(opt,tx){
 
         if(opt==="juntar"){
-        var txmin = tx.toLowerCase();
-            txsepare = txmin.split(" ");
-
-            newtx = "";
+        let txmin = tx.toLowerCase();
+        let txsepare = txmin.split(" ");
+        let newtx = "";
 
             if(txsepare.length>1){
-                for(var t=0; t<txsepare.length; t++){
-                    newtx += txsepare[t];
-                    
+                for(let t=0; t<txsepare.length; t++){
+                    newtx += txsepare[t];                    
                 }
                 return newtx;
             }
             return txmin;
         }
-                
+        
+        if(opt === "separar"){
+        let opcao = ["Tigela de 300ml","Tigela de 500ml","Tigela de 1L","Barca de 1L","Guaraná de 300ml","Guaraná de 500ml"];
+            if(tx.search('tigelade300') >= 0){
+                return opcao[0];
+            }else if(tx.search('tigelade500') >= 0){
+                return opcao[1];
+            }else if(tx.search('tigelade1l') >= 0){
+                return opcao[2];
+            }else if(tx.search('barcade1l') >= 0){
+                return opcao[3];
+            }else if(tx.search('guaranáde300') >= 0){
+                return opcao[4];
+            }else if(tx.search('guaranáde500') >= 0){
+                return opcao[5];
+            }            
+        }
     }
 
-
-
     function newPedido(){
-        // alert(qtdPedido())
-        // var tamanhos = ["Tigela 300ml","Tigela 500ml","Tigela 1L","Barca 1L"];
-        var bases = ["Açaí Tradicional","Creme de Cupuaçu","Creme de Ovomaltine","Creme de Amendoim","Creme de Ninho Trufado","Creme de Morango","Creme de Tapioca","Creme de Oreo"];       
-        var complementos = ["Amendoim","Confetes","Chocoboll","Granola","Castanha","Jujuba","Ovomaltine","Paçoca","Canudo Wafer","Gotas de Chocolate","Leite em pó","Farinha Láctea","Fini","Bis"];
-        var frutas = ["Banana","Morango","Kiwi","Uva"];
-        var coberturas = ["Calda de Chocolate","Calda de Morango","Calda de Uva","Leite Condensado"];
-        var plus = ["Baton","Nutella"];
-        var adicionais = ["Baton","Nutella","Amendoim","Confetes","Chocoboll","Granola","Castanha","Jujuba","Ovomaltine","Paçoca","Canudo Wafer","Gotas de Chocolate","Leite em pó","Farinha Láctea","Fini","Bis","Calda de Chocolate","Calda de Morango","Calda de Uva","Leite Condensado"];
-        // var bt = document.getElementById('bt').setAttribute('style','display:none');
-        var tagmain = document.getElementsByTagName('main')[0];
-        var contbase = 0;
-        var contcomplemento = 0;
-        var contfruta = 0;
-        var contcobertura = 0;
-        var contplus = 0;
-        var contadicional = 0;
+        document.getElementById('bt-start-order').setAttribute('style','display:none');
+        let bases = ["Açaí Tradicional","Creme de Cupuaçu","Creme de Ovomaltine","Creme de Amendoim","Creme de Ninho Trufado","Creme de Morango","Creme de Tapioca","Creme de Oreo"];       
+        let complementos = ["Amendoim","Confetes","Chocoboll","Granola","Castanha","Jujuba","Ovomaltine","Paçoca","Canudo Wafer","Gotas de Chocolate","Leite em pó","Farinha Láctea","Fini","Bis"];
+        let frutas = ["Banana","Morango","Kiwi","Uva"];
+        let coberturas = ["Calda de Chocolate","Calda de Morango","Calda de Uva","Leite Condensado"];
+        let plus = ["Baton","Nutella"];
+        let adicionais = ["Baton","Nutella","Amendoim","Confetes","Chocoboll","Granola","Castanha","Jujuba","Ovomaltine","Paçoca","Canudo Wafer","Gotas de Chocolate","Leite em pó","Farinha Láctea","Fini","Bis","Calda de Chocolate","Calda de Morango","Calda de Uva","Leite Condensado"];
+        let guaranas = ["Tradicional","Chocolate","Morango","Uva","Açaí"];
+        let guaraoptions1 = ["Com Cobertura", "Sem Cobertura"];
+        let guaraoptions2 = ["Com Paçoca", "Sem Paçoca"];
+        let tagmain = document.querySelector('main');
 
         document.getElementById('cardapio').setAttribute('style','display:none');
+
 /// LAÇO DE CRIAÇÃO DE PEDIDOS ///
-        for(var pd=0; pd<qtdPedido().length; pd++){       
-
-/*
-        var sectiontamanho = document.createElement('section');
-
-        var titletamanho = document.createElement('h2');
-            titletamanho.innerHTML = "o Tamanho";
-            sectiontamanho.appendChild(titletamanho);
+        for(let pd=0; pd<qtdPedido('desc').length; pd++){ 
             
-        var ultamanho = document.createElement('ul');
+        if(qtdPedido('desc')[pd] !== "Guaraná de 300ml" && qtdPedido('desc')[pd] !== "Guaraná de 500ml"){ 
 
-        for(var tam=0; tam<tamanhos.length; tam++){
-
-        var litamanho = document.createElement('li');                
-            litamanho.innerHTML = tamanhos[tam];               
-            litamanho.setAttribute('id','tamanho'+[tam]);
-            ultamanho.appendChild(litamanho);
-        }
-            sectiontamanho.appendChild(ultamanho);
-*/
-       
 /// SEÇÃO DE CREMES ///
-        var sectionbase = document.createElement('section');
+        let sectionbase = document.createElement('section');
+        let inputname = document.createElement('input');
+            if(qtdPedido('desc').length>1){
+                inputname.setAttribute('placeholder',`Para quem vai essa ${qtdPedido('desc')[pd]}?`);    
+                inputname.setAttribute('id',`nome-${formaText('juntar',qtdPedido('desc')[pd]+'-'+[pd])}`);          
+                inputname.setAttribute('name','nomepedido');          
+                inputname.setAttribute('type','text');          
+                inputname.setAttribute('class','send');
+                inputname.setAttribute('onkeyup','loadName(this)');
+                sectionbase.appendChild(inputname);
+            }
 
-        var titlebase = document.createElement('h2');
-        if(qtdPedido()[pd] === qtdPedido()[pd+1]){
-            contbase += 1;
-            titlebase.innerHTML = "Base da "+[contbase]+"ª "+qtdPedido()[pd];
-        }else if(qtdPedido()[pd-1] === qtdPedido()[pd]){
-            contbase += 1;
-            titlebase.innerHTML = "Base da "+[contbase]+"ª "+qtdPedido()[pd];
-            contbase = 0;
+        let titlebase = document.createElement('h2');
+        let descbase = document.createElement('p');
+        if(qtdPedido('desc')[pd] == "Tigela de 1L"){
+            descbase.innerHTML = "Escolha até 3 bases";
+        }else{
+            descbase.innerHTML = "Escolha até 2 bases";
         }
-        else{
-            titlebase.innerHTML = "Base da "+qtdPedido()[pd];
-        }
+            titlebase.innerHTML = `Base da ${qtdPedido('desc')[pd]}`;
             sectionbase.appendChild(titlebase);
+            sectionbase.appendChild(descbase);
     
-        var ulbase = document.createElement('ul');
+        let ulbase = document.createElement('ul');
+/// LAÇO DE CRIAÇÃO DE LISTA DOS CREMES ///
+        for(let bas=0; bas<bases.length; bas++){
 
-        for(var bas=0; bas<bases.length; bas++){
-
-        var libase = document.createElement('li');
+        let libase = document.createElement('li');
             selbase = document.createElement('input');
             selbase.setAttribute('type','checkbox');
-            selbase.setAttribute('value',`${'resbase'+pd+bas}`);
-            libase.appendChild(selbase);
-            spanbase = document.createElement('span');                
+            titlebase.setAttribute('id',`base-${formaText('juntar',qtdPedido('desc')[pd]+'-'+[pd])}`);
+            selbase.setAttribute('name',`base-${formaText('juntar',qtdPedido('desc')[pd]+'-'+[pd])}`);
+            selbase.setAttribute('id',`${formaText('juntar',bases[bas]+[pd])}`);          
+            selbase.setAttribute('value',`${bases[bas]}`);          
+            selbase.setAttribute('onclick',`selectRadio(this)`);           
+            libase.appendChild(selbase);            
+            labelbase = document.createElement('label');
+            labelbase.setAttribute('for',`${formaText('juntar',bases[bas]+[pd])}`);
+            libase.appendChild(labelbase);          
+            spanbase = document.createElement('span');               
             spanbase.innerHTML = bases[bas];
-            libase.appendChild(spanbase);          
+            labelbase.appendChild(spanbase);          
             libase.setAttribute('class',`${'litwo'}`);
             ulbase.appendChild(libase);
         }
             ulbase.setAttribute('class','coltwo');
             sectionbase.appendChild(ulbase);
+            tagmain.appendChild(sectionbase);
 
 
 /// SEÇÃO DE COMPLEMENTOS ///
-        var sectioncomplemento = document.createElement('section');
+        let sectioncomplemento = document.createElement('section');
+        let titlecomplemento = document.createElement('h2');
+        let desccomplemento = document.createElement('p');
+            desccomplemento.innerHTML = "Escolha até 3 complementos";
 
-        var titlecomplemento = document.createElement('h2');
-        if(qtdPedido()[pd] === qtdPedido()[pd+1]){
-            contcomplemento += 1;
-            titlecomplemento.innerHTML = "Complementos da "+[contcomplemento]+"ª "+qtdPedido()[pd];
-        }else if(qtdPedido()[pd-1] === qtdPedido()[pd]){
-            contcomplemento += 1;
-            titlecomplemento.innerHTML = "Complementos da "+[contcomplemento]+"ª "+qtdPedido()[pd];
-            contcomplemento = 0;
-        }
-        else{
-            titlecomplemento.innerHTML = "Complementos da "+qtdPedido()[pd];
-        }
-            // titlecomplemento.innerHTML = "os complementos";
+            titlecomplemento.innerHTML = `Complementos da ${qtdPedido('desc')[pd]}`;
             sectioncomplemento.appendChild(titlecomplemento);
+            sectioncomplemento.appendChild(desccomplemento);
             
-        var ulcomplemento = document.createElement('ul');
+        let ulcomplemento = document.createElement('ul');
 
-        for(var comp=0; comp<complementos.length; comp++){
-
-        var licomplemento = document.createElement('li');
+        for(let comp=0; comp<complementos.length; comp++){
+/// LAÇO DE CRIAÇÃO DE LISTA DOS COMPLEMENTOS ///
+        let licomplemento = document.createElement('li');
             selcomplemento = document.createElement('input');
-            selcomplemento.setAttribute('type','checkbox');
-            selcomplemento.setAttribute('value',`${'rescomplemento'+pd+comp}`);
+            selcomplemento.setAttribute('type','checkbox');            
+            titlecomplemento.setAttribute('id',`complemento-${formaText('juntar',qtdPedido('desc')[pd]+'-'+[pd])}`);
+            selcomplemento.setAttribute('name',`complemento-${formaText('juntar',qtdPedido('desc')[pd]+'-'+[pd])}`);
+            selcomplemento.setAttribute('id',`${formaText('juntar',complementos[comp]+[pd])}`);          
+            selcomplemento.setAttribute('value',`${complementos[comp]}`);          
+            selcomplemento.setAttribute('onclick',`selectRadio(this)`);
             licomplemento.appendChild(selcomplemento);
+            labelcomplemento = document.createElement('label');
+            labelcomplemento.setAttribute('for',`${formaText('juntar',complementos[comp]+[pd])}`);
+            licomplemento.appendChild(labelcomplemento);
             spancomplemento = document.createElement('span');                               
             spancomplemento.innerHTML = complementos[comp];
-            licomplemento.appendChild(spancomplemento);               
+            labelcomplemento.appendChild(spancomplemento);               
             licomplemento.setAttribute('class','litwo');            
             ulcomplemento.appendChild(licomplemento);
         }
             ulcomplemento.setAttribute('class','coltwo');
             sectioncomplemento.appendChild(ulcomplemento);
+            tagmain.appendChild(sectioncomplemento);
 
 
 /// SEÇÃO DE FRUTAS ///
-        var sectionfruta = document.createElement('section');
-
-        var titlefruta = document.createElement('h2');
-        if(qtdPedido()[pd] === qtdPedido()[pd+1]){
-            contfruta += 1;
-            titlefruta.innerHTML = "Fruta da "+[contfruta]+"ª "+qtdPedido()[pd];
-        }else if(qtdPedido()[pd-1] === qtdPedido()[pd]){
-            contfruta += 1;
-            titlefruta.innerHTML = "Fruta da "+[contfruta]+"ª "+qtdPedido()[pd];
-            contfruta = 0;
-        }
-        else{
-            titlefruta.innerHTML = "Fruta da "+qtdPedido()[pd];
-        }
-            // titlefruta.innerHTML = "o fruta";
+        let sectionfruta = document.createElement('section');
+        let titlefruta = document.createElement('h2');
+        let descfruta = document.createElement('p');
+            descfruta.innerHTML = "Escolha até 1 fruta";
+    
+            titlefruta.innerHTML = `Fruta da ${qtdPedido('desc')[pd]}`;
             sectionfruta.appendChild(titlefruta);
+            sectionfruta.appendChild(descfruta);
             
-        var ulfruta = document.createElement('ul');
+        let ulfruta = document.createElement('ul');
+/// LAÇO DE CRIAÇÃO DE LISTA DAS FRUTAS ///
+        for(let frut=0; frut<frutas.length; frut++){
 
-        for(var frut=0; frut<frutas.length; frut++){
-
-        var lifruta = document.createElement('li');
+        let lifruta = document.createElement('li');
             selfruta = document.createElement('input');
             selfruta.setAttribute('type','checkbox');
-            selfruta.setAttribute('value','resfruta'+[pd]+[frut]);
+            titlefruta.setAttribute('id',`fruta-${formaText('juntar',qtdPedido('desc')[pd]+'-'+[pd])}`);
+            selfruta.setAttribute('name',`fruta-${formaText('juntar',qtdPedido('desc')[pd]+'-'+[pd])}`);
+            selfruta.setAttribute('id',`${formaText('juntar',frutas[frut]+[pd])}`);          
+            selfruta.setAttribute('value',`${frutas[frut]}`);          
+            selfruta.setAttribute('onclick',`selectRadio(this)`);
             lifruta.appendChild(selfruta);
+            labelfruta = document.createElement('label');
+            labelfruta.setAttribute('for',`${formaText('juntar',frutas[frut]+[pd])}`);
+            lifruta.appendChild(labelfruta);
             spanfruta = document.createElement('span');             
             spanfruta.innerHTML = frutas[frut];  
-            lifruta.appendChild(spanfruta);             
+            labelfruta.appendChild(spanfruta);             
             lifruta.setAttribute('class','litwo');
             ulfruta.appendChild(lifruta);
         }
             ulfruta.setAttribute('class','coltwo');
             sectionfruta.appendChild(ulfruta);
+            tagmain.appendChild(sectionfruta);
 
 
 /// SEÇÃO DE COBERTURAS ///
-        var sectioncobertura = document.createElement('section');
+        let sectioncobertura = document.createElement('section');
+        let titlecobertura = document.createElement('h2');
+        let desccobertura = document.createElement('p');
+            desccobertura.innerHTML = "Escolha até 2 coberturas";
 
-        var titlecobertura = document.createElement('h2');
-        if(qtdPedido()[pd] === qtdPedido()[pd+1]){
-            contcobertura += 1;
-            titlecobertura.innerHTML = "Cobertura da "+[contcobertura]+"ª "+qtdPedido()[pd];
-        }else if(qtdPedido()[pd-1] === qtdPedido()[pd]){
-            contcobertura += 1;
-            titlecobertura.innerHTML = "Cobertura da "+[contcobertura]+"ª "+qtdPedido()[pd];
-            contcobertura = 0;
-        }
-        else{
-            titlecobertura.innerHTML = "Cobertura da "+qtdPedido()[pd];
-        }
-            // titlecobertura.innerHTML = "a cobertura";
+            titlecobertura.innerHTML = `Cobertura da ${qtdPedido('desc')[pd]}`;
             sectioncobertura.appendChild(titlecobertura);
+            sectioncobertura.appendChild(desccobertura);
             
-        var ulcobertura = document.createElement('ul');
+        let ulcobertura = document.createElement('ul');
 
-        for(var cob=0; cob<coberturas.length; cob++){
-
-        var licobertura = document.createElement('li');
+        for(let cob=0; cob<coberturas.length; cob++){
+/// LAÇO DE CRIAÇÃO DE LISTA DAS COBERTURAS ///
+        let licobertura = document.createElement('li');
             selcobertura = document.createElement('input');
             selcobertura.setAttribute('type','checkbox');
-            selcobertura.setAttribute('value','rescobertura'+[pd]+[cob]);
+            titlecobertura.setAttribute('id',`cobertura-${formaText('juntar',qtdPedido('desc')[pd]+'-'+[pd])}`);
+            selcobertura.setAttribute('name',`cobertura-${formaText('juntar',qtdPedido('desc')[pd]+'-'+[pd])}`);
+            selcobertura.setAttribute('id',`${formaText('juntar',coberturas[cob]+[pd])}`);          
+            selcobertura.setAttribute('value',`${coberturas[cob]}`);          
+            selcobertura.setAttribute('onclick',`selectRadio(this)`);
             licobertura.appendChild(selcobertura);
-            spancobertura = document.createElement('span');             
+            labelcobertura = document.createElement('label');
+            labelcobertura.setAttribute('for',`${formaText('juntar',coberturas[cob]+[pd])}`);
+            licobertura.appendChild(labelcobertura);
+            spancobertura = document.createElement('span');         
             spancobertura.innerHTML = coberturas[cob];  
-            licobertura.appendChild(spancobertura);             
-            licobertura.setAttribute('class','litwo');              
-            licobertura.setAttribute('id','cobertura'+[pd]+[cob]);
+            labelcobertura.appendChild(spancobertura);             
+            licobertura.setAttribute('class','litwo');
             ulcobertura.appendChild(licobertura);
         }
             ulcobertura.setAttribute('class','coltwo')
             sectioncobertura.appendChild(ulcobertura);
+            tagmain.appendChild(sectioncobertura);
 
 /// SEÇÃO DE PLUS+ ///
-    if(qtdPedido()[pd] === "Barca de 1L"){
-        var sectionplus = document.createElement('section');
-
-        var titleplus = document.createElement('h2');
-        if(qtdPedido()[pd] === qtdPedido()[pd+1]){
-            contplus += 1;
-            titleplus.innerHTML = "Plus+ da "+[contplus]+"ª "+qtdPedido()[pd];
-        }else if(qtdPedido()[pd-1] === qtdPedido()[pd]){
-            contplus += 1;
-            titleplus.innerHTML = "Plus+ da "+[contplus]+"ª "+qtdPedido()[pd];
-            contbase = 0;
-        }
-        else{
-            titleplus.innerHTML = "Plus+ da "+qtdPedido()[pd];
-        }
-            // titleplus.innerHTML = "o plus";
+    if(qtdPedido('desc')[pd] === "Barca de 1L"){
+        let sectionplus = document.createElement('section');
+        let titleplus = document.createElement('h2');
+        let descplus = document.createElement('p');
+            descplus.innerHTML = "Escolha 1 Plus+";
+            descbase.innerHTML = "Escolha até 3 bases";
+            titleplus.innerHTML = `Plus+ da ${qtdPedido('desc')[pd]}`;;
+                    
             sectionplus.appendChild(titleplus);
+            sectionplus.appendChild(descplus);
     
-        var ulplus = document.createElement('ul');
+        let ulplus = document.createElement('ul');
 
-        for(var p=0; p<plus.length; p++){
-
-        var liplus = document.createElement('li');
+        for(let p=0; p<plus.length; p++){
+/// LAÇO DE CRIAÇÃO DE LISTA DOS PLUS+ ///
+        let liplus = document.createElement('li');
             selplus = document.createElement('input');
             selplus.setAttribute('type','checkbox');
-            selplus.setAttribute('value','resplus'+[pd]+[p]);
+            titleplus.setAttribute('id',`plus-${formaText('juntar',qtdPedido('desc')[pd]+'-'+[pd])}`);
+            selplus.setAttribute('name',`plus-${formaText('juntar',qtdPedido('desc')[pd]+'-'+[pd])}`);
+            selplus.setAttribute('id',`${formaText('juntar',plus[p]+[pd])}`);          
+            selplus.setAttribute('value',`${plus[p]}`);          
+            selplus.setAttribute('onclick',`selectRadio(this)`);
             liplus.appendChild(selplus);
+            labelplus = document.createElement('label');
+            labelplus.setAttribute('for',`${formaText('juntar',plus[p]+[pd])}`);
+            liplus.appendChild(labelplus);
             spanplus = document.createElement('span');             
             spanplus.innerHTML = plus[p];  
-            liplus.appendChild(spanplus);             
-            liplus.setAttribute('class','litwo');                              
-            liplus.setAttribute('id','plus'+[pd]+[p]);
+            labelplus.appendChild(spanplus);             
+            liplus.setAttribute('class','litwo');
             ulplus.appendChild(liplus);
         }
             ulplus.setAttribute('class','coltwo');
             sectionplus.appendChild(ulplus);
+            tagmain.appendChild(sectionplus);
     }
 
 /// SEÇÃO DE ADICIONAIS ///
-        var sectionadicional = document.createElement('section');
-
-        var titleadicional = document.createElement('h2');
-        if(qtdPedido()[pd] === qtdPedido()[pd+1]){
-            contadicional += 1;
-            titleadicional.innerHTML = "Adicionais da "+[contadicional]+"ª "+qtdPedido()[pd];
-        }else if(qtdPedido()[pd-1] === qtdPedido()[pd]){
-            contadicional += 1;
-            titleadicional.innerHTML = "Adicionais da "+[contadicional]+"ª "+qtdPedido()[pd];
-            contadicional = 0;
-        }
-        else{
-            titleadicional.innerHTML = "Adicionais da "+qtdPedido()[pd];
-        }
-            // titleadicional.innerHTML = "o adicional";
+        let sectionadicional = document.createElement('section');
+        let titleadicional = document.createElement('h2');
+        let descadicional = document.createElement('p');
+            descadicional.innerHTML = "Quer mais complementos? Selecione-os!"
+            titleadicional.innerHTML = `Adicionais da ${qtdPedido('desc')[pd]}`;            
+        
             sectionadicional.appendChild(titleadicional);
+            sectionadicional.appendChild(descadicional);
     
-        var uladicional = document.createElement('ul');
+        let uladicional = document.createElement('ul');
 
-        for(var ad=0; ad<adicionais.length; ad++){
+        let preco = "";
 
-        var liadicional = document.createElement('li');
-            spanadicional = document.createElement('span');               
+        for(let ad=0; ad<adicionais.length; ad++){
+/// LAÇO DE CRIAÇÃO DE LISTA DOS ADICIONAIS ///
+        let liadicional = document.createElement('li');
+            spanadicional = document.createElement('span');
+            titleadicional.setAttribute('id',`titadd${[pd]}`);
+            spanadicional.setAttribute('id',`titadd${formaText('juntar',adicionais[ad]+[pd]+[ad])}`);
             spanadicional.innerHTML = adicionais[ad];
             liadicional.appendChild(spanadicional);
             respanadd = document.createElement('span');
+            respanadd.setAttribute('style','display:flex');
             respanadd.setAttribute('id','respanadd'+[pd]+[ad]);
             liadicional.appendChild(respanadd);
             btmenosad = document.createElement('button');
-            btmenosad.setAttribute('onclick',`checkTam('${formaText('juntar','-add'+adicionais[ad]+[pd]+[ad])}')`);
-            btmenosad.innerHTML = "-";
+            btmenosad.setAttribute('class',`menosadd`);
+            btmenosad.setAttribute('id',`${formaText('juntar','-add'+adicionais[ad]+[pd]+ad)}`);
+            btmenosad.setAttribute('onclick',`checkQtd('${formaText('juntar','-add'+adicionais[ad]+[pd]+[ad])}')`);
+            btmenosad.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M198-421v-118h564v118H198Z"/></svg>`;
+            btmenosad.setAttribute('style','display:none');
             respanadd.appendChild(btmenosad);
             resinputad = document.createElement('input');
             resinputad.setAttribute('type','text');
+            resinputad.setAttribute('value',0);
+            resinputad.setAttribute('name',`titadd${[pd]}`);
             resinputad.setAttribute('id',`${formaText('juntar','add'+adicionais[ad]+[pd]+[ad])}`);
-            
+            resinputad.value = 0;
             resinputad.disabled = true;
+            resinputad.setAttribute('style','display:none');
             respanadd.appendChild(resinputad);
             btmaisad = document.createElement('button');
-            btmaisad.setAttribute('onclick',`checkTam('${formaText('juntar','+add'+adicionais[ad]+[pd]+[ad])}')`);
-            btmaisad.innerHTML = "+";
+            btmaisad.setAttribute('class',`maisadd`);
+            btmaisad.setAttribute('onclick',`checkQtd('${formaText('juntar','+add'+adicionais[ad]+[pd]+[ad])}')`);
+            btmaisad.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M421-421H206v-118h215v-215h118v215h215v118H539v215H421v-215Z"/></svg>`;
             respanadd.appendChild(btmaisad);
             liadicional.setAttribute('class','lione');
+            if(adicionais[ad].search('Baton') >= 0 || adicionais[ad].search('Nutella') >= 0){
+                preco = "+ R$2,00";
+            }else{
+                preco = "+ R$1,50";
+            }
+            pcoadd = document.createElement('p');
+            pcoadd.innerHTML = preco;
+            spanadicional.appendChild(pcoadd);
             uladicional.appendChild(liadicional);
         }
             uladicional.setAttribute('class','colone');
             sectionadicional.appendChild(uladicional);
-
-               
-
-            // tagmain.appendChild(sectiontamanho);
-            tagmain.appendChild(sectionbase);
-            tagmain.appendChild(sectioncomplemento);
-            tagmain.appendChild(sectionfruta);
-            tagmain.appendChild(sectioncobertura);
-            if(qtdPedido()[pd] === "Barca de 1L"){
-            tagmain.appendChild(sectionplus);
-            }
             tagmain.appendChild(sectionadicional);
-        }    // alert(tagmain)
+            
+        }else{
+/// SEÇÃO DE GUARANÁ DO AMAZONAS /// 
+
+        let sectionguarana = document.createElement('section');
+        if(qtdPedido('desc').length>1){
+        let inputnamegua = document.createElement('input');
+            inputnamegua.setAttribute('placeholder',`Para quem vai esse ${qtdPedido('desc')[pd]}?`);
+            inputnamegua.setAttribute('id',`nome${formaText('juntar',qtdPedido('desc')[pd]+'-'+[pd])}`);
+            inputnamegua.setAttribute('name','nomepedido');
+            inputnamegua.setAttribute('class','send');
+            inputnamegua.setAttribute('onkeyup','loadName(this)');
+            sectionguarana.appendChild(inputnamegua);
+        }
+            
+        let titleguarana = document.createElement('h2');
+            titleguarana.innerHTML = `Preparo do ${qtdPedido('desc')[pd]}`;                    
+            sectionguarana.appendChild(titleguarana);
+            
+        let ulguarana = document.createElement('ul');
+
+        for(let gua=0; gua<guaranas.length; gua++){
+/// LAÇO DE CRIAÇÃO DE LISTA DOS SABORES DOS GUARANÁS ///
+        let liguarana = document.createElement('li');
+            selguarana = document.createElement('input');
+            selguarana.setAttribute('type','checkbox');
+            titleguarana.setAttribute('id',`sabor-${formaText('juntar',qtdPedido('desc')[pd]+'-'+[pd])}`);
+            selguarana.setAttribute('name',`sabor-${formaText('juntar',qtdPedido('desc')[pd]+'-'+[pd])}`);
+            selguarana.setAttribute('id',`${formaText('juntar',guaranas[gua]+[pd])}`);          
+            selguarana.setAttribute('value',`Sabor ${guaranas[gua]}`);          
+            selguarana.setAttribute('onclick',`selectRadio(this)`);
+            liguarana.appendChild(selguarana);
+            labelguarana = document.createElement('label');
+            labelguarana.setAttribute('for',`${formaText('juntar',guaranas[gua]+[pd])}`);
+            liguarana.appendChild(labelguarana);
+            spanguarana = document.createElement('span');             
+            spanguarana.innerHTML = guaranas[gua];  
+            labelguarana.appendChild(spanguarana);             
+            liguarana.setAttribute('class','litwo');
+            ulguarana.appendChild(liguarana);
+        }
+            ulguarana.setAttribute('class','coltwo');
+            sectionguarana.appendChild(ulguarana);
+
+/// 1ª OPÇÃO DO GUARANÁ
+
+        let sectionguaraoption = document.createElement('section');
+        let titleguaraoption = document.createElement('h2');
+            titleguaraoption.innerHTML = `Cobertura do ${qtdPedido('desc')[pd]}`;
+        
+            titleguaraoption.setAttribute('id',`guacob-${formaText('juntar',qtdPedido('desc')[pd]+'-'+[pd])}`);
+            sectionguaraoption.appendChild(titleguaraoption);
+            
+        let ulguaraoption = document.createElement('ul');
+        
+        for(let gc=0; gc<guaraoptions1.length; gc++){
+/// LAÇO DE CRIAÇÃO DE LISTA DAS OPÇÕES DOS GUARANÁS ///
+        let liguaraoption = document.createElement('li');
+            selguaraoption = document.createElement('input');
+            selguaraoption.setAttribute('type','checkbox');
+            selguaraoption.setAttribute('name',`guacob-${formaText('juntar',qtdPedido('desc')[pd]+'-'+[pd])}`);
+            selguaraoption.setAttribute('id',`${formaText('juntar',guaraoptions1[gc]+[pd])}`);          
+            selguaraoption.setAttribute('value',`${guaraoptions1[gc]}`);          
+            selguaraoption.setAttribute('onclick',`selectRadio(this)`);
+            liguaraoption.appendChild(selguaraoption);
+            labelguaraoption = document.createElement('label');
+            labelguaraoption.setAttribute('for',`${formaText('juntar',guaraoptions1[gc]+[pd])}`);
+            liguaraoption.appendChild(labelguaraoption);
+            spanguaraoption = document.createElement('span');             
+            spanguaraoption.innerHTML = guaraoptions1[gc];  
+            labelguaraoption.appendChild(spanguaraoption);             
+            liguaraoption.setAttribute('class','litwo');
+            ulguaraoption.appendChild(liguaraoption);
+        }
+            ulguaraoption.setAttribute('class','coltwo');
+            sectionguaraoption.appendChild(ulguaraoption);
+
+/// 2ª OPÇÃO DO GUARANÁ
+        let sectionguaraoption2 = document.createElement('section');
+        let titleguaraoption2 = document.createElement('h2');   
+            titleguaraoption2.innerHTML = `Complemento do ${qtdPedido('desc')[pd]}`; 
+            titleguaraoption2.setAttribute('id',`guapac-${formaText('juntar',qtdPedido('desc')[pd]+'-'+[pd])}`);
+            sectionguaraoption2.appendChild(titleguaraoption2);
+        
+        let ulguaraoption2 = document.createElement('ul');
+        
+
+            for(let gp=0; gp<guaraoptions2.length; gp++){
+/// LISTA DA SEGUNDA OPÇÃO ///
+        let liguaraoption2 = document.createElement('li');
+            selguaraoption2 = document.createElement('input');
+            selguaraoption2.setAttribute('type','checkbox');
+            selguaraoption2.setAttribute('name',`guapac-${formaText('juntar',qtdPedido('desc')[pd]+'-'+[pd])}`);
+            selguaraoption2.setAttribute('id',`${formaText('juntar',guaraoptions2[gp]+[pd])}`);          
+            selguaraoption2.setAttribute('value',`${guaraoptions2[gp]}`);          
+            selguaraoption2.setAttribute('onclick',`selectRadio(this)`);
+            liguaraoption2.appendChild(selguaraoption2);
+            labelguaraoption2 = document.createElement('label');
+            labelguaraoption2.setAttribute('for',`${formaText('juntar',guaraoptions2[gp]+[pd])}`);
+            liguaraoption2.appendChild(labelguaraoption2);
+            spanguaraoption2 = document.createElement('span');             
+            spanguaraoption2.innerHTML = guaraoptions2[gp];  
+            labelguaraoption2.appendChild(spanguaraoption2);             
+            liguaraoption2.setAttribute('class','litwo');            
+            ulguaraoption2.appendChild(liguaraoption2);
+        }
+            ulguaraoption2.setAttribute('class','coltwo');
+            sectionguaraoption2.appendChild(ulguaraoption2);
+
+            tagmain.appendChild(sectionguarana);
+            tagmain.appendChild(sectionguaraoption);          
+            tagmain.appendChild(sectionguaraoption2);
+
+        }
+        
+        }// END FOR        
+                   
+// BOTÃO DE GERAR PEDIDO //
+        let btgenerate = document.createElement('button');
+            btgenerate.innerHTML = "GERAR PEDIDO";
+            btgenerate.setAttribute('id','bt-generate');
+            btgenerate.setAttribute('onclick','sendPedido()');
+
+            tagmain.appendChild(btgenerate);
+            location.href = "#";
+    }
+
+    function loadName(n = ""){        
+
+        if(n.nodeName == 'INPUT'){
+            let vname = n.value;
+            let idn = n.id;
+            let optname = idn.substring(5);
+            let endname = idn.charAt(idn.length-1);
+            let newname = vname.trim();
+            let newoptname = "";
+            if(newname.length > 0){
+                newname = " de "+capitalize(newname);
+            }                      
+
+            if(idn.search('tigela') >= 0 || idn.search('barca') >= 0){
+                newoptname = formaText("separar",optname);
+
+                document.getElementById(`base-${optname}`).innerText = `Base da ${newoptname} ${newname}`;
+                document.getElementById(`complemento-${optname}`).innerText = `Complementos da ${newoptname} ${newname}`;
+                document.getElementById(`fruta-${optname}`).innerText = `Fruta da ${newoptname} ${newname}`;
+                document.getElementById(`cobertura-${optname}`).innerText = `Cobertura da ${newoptname} ${newname}`;
+                document.getElementById(`titadd${endname}`).innerText = `Adicionais da ${newoptname} ${newname}`;
+                if(idn.search('barca') >= 0){
+                    document.getElementById(`plus-${optname}`).innerText = `Plus+ da ${newoptname} ${newname}`;
+                }
+            }
+            if(idn.search('guara') >= 0){
+                optname = idn.substring(4);
+                newoptname = formaText("separar",optname);
+
+                document.getElementById(`sabor-${optname}`).innerText = `Preparo do ${newoptname} ${newname}`;
+                document.getElementById(`guacob-${optname}`).innerText = `Cobertura do ${newoptname} ${newname}`;
+                document.getElementById(`guapac-${optname}`).innerText = `Complemento do ${newoptname} ${newname}`;
+            }
+        }        
+    }
+
+    function capitalize(texto){
+        return texto.charAt(0).toUpperCase() + texto.slice(1);
     }
     
 </script>
 </body>
 </html>
-
-
