@@ -9,23 +9,21 @@
 </head>
 <style>
 *{margin: 0; padding: 0;}
-    body{
+    body {
         max-width: 480px;
         margin: auto;
         background-color: #6441AB;
-        font-family: Arial, Helvetica, sans-serif;
-        
+        font-family: Arial, Helvetica, sans-serif;        
     }
-    header{
+    header {
         background-color: #FFDE59;
         position: fixed;
         width: 100%;
         left: 0;
-        z-index: 99;
+        z-index: 98;
         box-shadow: 0px 2px 5px #00000030;
-
     }
-    nav{
+    nav {
         max-width: 480px;
         margin: auto;
         position: relative;
@@ -33,7 +31,7 @@
         justify-content: center;
         padding: 10px;
     }
-    nav button{
+    #bt-start-order {
         background-color: #631658;
         font-weight: bold;
         color: white;
@@ -46,30 +44,30 @@
         display: none;
         transform: translateY(-50%);
     }
-    h1{
+    h1 {
         font-size: 1.5em;
     }
-    h2{
+    h2 {
         margin: 5px 0px 2px 0px;
         font-size: 1.2em;
     }
-    section>p{
+    section > p {
         font-size: .9em;
     }
-    #logo{
+    #logo {
         display: grid;
     }
-    main{
+    main {
         background-color: rgb(207, 189, 216);
         background-size: contain;
         background-repeat: no-repeat;
-        padding-top: 100px;
+        padding: 100px 0px 10px 0px;
         width: 100%;
         min-height: 70vh;
         box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.3);
     }
 
-    main > button{
+    main > button {
         background-color: #631658;
         color: white;
         font-weight: bold;
@@ -79,37 +77,37 @@
         border-radius: 5px;
     }
     
-    section{
+    section {
         padding: 10px;
     }
-    #cardapio{
+    #cardapio {
         display: none;
     }
-    #cardapio ul{
+    #cardapio ul {
         display: flex;
         flex-wrap: wrap;
         justify-content: space-around;
     }
-    #cardapio li{
+    #cardapio li {
         position: relative;
         margin: 10px;
         font-weight: bold;
         text-align: center;
     }
-    #cardapio img{
+    #cardapio img {
         width: 140px;
         height: 140px;
         border: 2px solid black;
         border-radius: 10px;
         background-color: #631658;
     }
-    #cardapio button{
+    #cardapio button {
         width: 60px;
         height: 30px;
         position: absolute;
         top: 120px;
     }
-    .left{
+    .left {
         left: 0;
         background-color: #FFDE59;
         fill: #be0000;
@@ -118,7 +116,7 @@
         border-bottom: 2px solid black;
         border-left: 2px solid black;
     }
-    .right{
+    .right {
         right: 0;  
         background-color: #FFDE59;
         fill: #00be00;
@@ -127,7 +125,7 @@
         border-bottom: 2px solid black;
         border-right: 2px solid black;
     }
-    #cardapio input{
+    #cardapio input {
         left: 50%;
         width: 40px;
         height: 40px;
@@ -143,7 +141,7 @@
         border: 2px solid black;
     }
     
-    #cardapio p{
+    #cardapio p {
         margin: 10px 0px;
         width: 140px;
         
@@ -154,14 +152,14 @@
         opacity: .7;
     }
 
-    ul{
+    ul {
         list-style: none;
         padding-inline-start: unset;
     }
-    .colone{
+    .colone {
         background-color: rgba(95, 158, 160, 0);
     }
-    .colone button{
+    .colone button {
         width: 30px;
         border: none;
         background-color: transparent;
@@ -172,19 +170,19 @@
         justify-content: center;
     }
 
-    .maisadd{
+    .maisadd {
         fill: #00be00;
     }
-    .menosadd{
+    .menosadd {
         fill: #be0000;
     }
-    .coltwo{
+    .coltwo {
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
         justify-content: space-around;
     }
-    .lione{
+    .lione {
         display: flex;
         align-items: center;
         justify-content: space-between;
@@ -193,10 +191,10 @@
         border-bottom: 1px solid rgba(0, 0, 0, 0.1);
         
     }
-    .lione p{
+    .lione p {
         font-size: .7em;
     }
-    .lione input{
+    .lione input {
         width: 30px;
         color: black;
         background: none;
@@ -205,7 +203,7 @@
         text-align: center;
         font-weight: bold;
     }
-    .litwo{
+    .litwo {
         background-color: rgba(255, 248, 220, 0.7);
         width: 140px;
         height: 140px;        
@@ -214,7 +212,7 @@
         border-radius: 10px;
         box-shadow: 0px 0px 5px 1px #00000030;
     }
-    .litwo span{
+    .litwo span {
         top: 5px;
         left: 50%;
         position: absolute;
@@ -223,11 +221,11 @@
         width: 100%;
         transform: translateX(-50%);
     }
-    input{
+    input {
         outline: 0;
     }
 
-    input[name=nomepedido]{
+    input[name=nomepedido] {
         width: calc(100% - 20px);
         height: 30px;
         font-size: 1em;
@@ -237,11 +235,11 @@
         border: none;
         box-shadow: 0px 0px 1px 1px #0000003d;
     }
-    input[name=nomepedido]:focus{
+    input[name=nomepedido]:focus {
         box-shadow: 0px 0px 1px 1px #6441AB;
     }
 
-    input[type=checkbox]{
+    input[type=checkbox] {
         display: none;
     }
 
@@ -343,6 +341,70 @@
         background-image: url(imagens/bases/cremedeoreo.png);
     }
 /* FIM BASES */
+
+/* INÍCIO RECHEIOS */
+    input[value="Doce de Leite"] + label {
+        background-image: url(imagens/recheios/docedeleite.png);
+    }
+    input[value="Doce de Leite"]:checked + label {
+        background-image: url(imagens/recheios/docedeleite.png);
+    }
+    input[value="Doce de Leite"]:disabled + label {
+        background-image: url(imagens/recheios/docedeleite.png);
+    }
+
+    input[value="Coxinha de Frango"] + label {
+        background-image: url(imagens/recheios/coxinhadefrango.png);
+    }
+    input[value="Coxinha de Frango"]:checked + label {
+        background-image: url(imagens/recheios/coxinhadefrango.png);
+    }
+    input[value="Coxinha de Frango"]:disabled + label {
+        background-image: url(imagens/recheios/coxinhadefrango.png);
+    }
+
+    input[value="Bolinho de Charque"] + label {
+        background-image: url(imagens/recheios/bolinhodecharque.png);
+    }
+    input[value="Bolinho de Charque"]:checked + label {
+        background-image: url(imagens/recheios/bolinhodecharque.png);
+    }
+    input[value="Bolinho de Charque"]:disabled + label {
+        background-image: url(imagens/recheios/bolinhodecharque.png);
+    }
+
+    input[value="Pastel Carne de Sol"] + label {
+        background-image: url(imagens/recheios/pastelcarnedesol.png);
+    }
+    input[value="Pastel Carne de Sol"]:checked + label {
+        background-image: url(imagens/recheios/pastelcarnedesol.png);
+    }
+    input[value="Pastel Carne de Sol"]:disabled + label {
+        background-image: url(imagens/recheios/pastelcarnedesol.png);
+    }
+/* FIM RECHEIOS */
+
+/* INÍCIO CONFIRMAÇÃO */
+    input[value="Com Cobertura"] + label, input[value="Com Paçoca"] + label, input[value="Quero Ketchup"] + label, input[value="Quero Maionese"] + label, input[value="Quero Mostarda"] + label {
+        background-image: url(imagens/confirmacao/sim.png);
+    }
+    input[value="Com Cobertura"]:checked + label, input[value="Com Paçoca"]:checked + label, input[value="Quero Ketchup"]:checked + label, input[value="Quero Maionese"]:checked + label, input[value="Quero Mostarda"]:checked + label {
+        background-image: url(imagens/confirmacao/sim.png);
+    }
+    input[value="Com Cobertura"]:disabled + label, input[value="Com Paçoca"]:disabled + label, input[value="Quero Ketchup"]:disabled + label, input[value="Quero Maionese"]:disabled + label, input[value="Quero Mostarda"]:disabled + label {
+        background-image: url(imagens/confirmacao/sim.png);
+    }
+
+    input[value="Sem Cobertura"] + label, input[value="Sem Paçoca"] + label, input[value="Não Quero Ketchup"] + label, input[value="Não Quero Maionese"] + label, input[value="Não Quero Mostarda"] + label {
+        background-image: url(imagens/confirmacao/nao.png);
+    }
+    input[value="Sem Cobertura"]:checked + label, input[value="Sem Paçoca"]:checked + label, input[value="Não Quero Ketchup"]:checked + label, input[value="Não Quero Maionese"]:checked + label, input[value="Não Quero Mostarda"]:checked + label {
+        background-image: url(imagens/confirmacao/nao.png);
+    }
+    input[value="Sem Cobertura"]:disabled + label, input[value="Sem Paçoca"]:disabled + label, input[value="Não Quero Ketchup"]:disabled + label, input[value="Não Quero Maionese"]:disabled + label, input[value="Não Quero Mostarda"]:disabled + label {
+        background-image: url(imagens/confirmacao/nao.png);
+    }
+/* FIM CONFIRMAÇÃO */
 
 /* INÍCIO COMPLEMENTOS */
     input[value="Amendoim"] + label {
@@ -527,6 +589,98 @@
         background-image: url(imagens/frutas/uva.png);
     }
 
+    input[value="Tradicional"] + label {
+        background-image: url(imagens/frutas/guarana.png);
+    }
+    input[value="Tradicional"]:checked + label {
+        background-image: url(imagens/frutas/guarana.png);
+    }
+    input[value="Tradicional"]:disabled + label {
+        background-image: url(imagens/frutas/guarana.png);
+    }
+
+    input[value="Chocolate"] + label {
+        background-image: url(imagens/frutas/chocolate.png);
+    }
+    input[value="Chocolate"]:checked + label {
+        background-image: url(imagens/frutas/chocolate.png);
+    }
+    input[value="Chocolate"]:disabled + label {
+        background-image: url(imagens/frutas/chocolate.png);
+    }
+
+    input[value="Açaí"] + label {
+        background-image: url(imagens/frutas/acai.png);
+    }
+    input[value="Açaí"]:checked + label {
+        background-image: url(imagens/frutas/acai.png);
+    }
+    input[value="Açaí"]:disabled + label {
+        background-image: url(imagens/frutas/acai.png);
+    }
+
+    input[value="Cajá"] + label {
+        background-image: url(imagens/frutas/caja.png);
+    }
+    input[value="Cajá"]:checked + label {
+        background-image: url(imagens/frutas/caja.png);
+    }
+    input[value="Cajá"]:disabled + label {
+        background-image: url(imagens/frutas/caja.png);
+    }
+
+    input[value="Mangaba"] + label {
+        background-image: url(imagens/frutas/mangaba.png);
+    }
+    input[value="Mangaba"]:checked + label {
+        background-image: url(imagens/frutas/mangaba.png);
+    }
+    input[value="Mangaba"]:disabled + label {
+        background-image: url(imagens/frutas/mangaba.png);
+    }
+
+    input[value="Goiaba"] + label {
+        background-image: url(imagens/frutas/goiaba.png);
+    }
+    input[value="Goiaba"]:checked + label {
+        background-image: url(imagens/frutas/goiaba.png);
+    }
+    input[value="Goiaba"]:disabled + label {
+        background-image: url(imagens/frutas/goiaba.png);
+    }
+
+    input[value="Acerola"] + label {
+        background-image: url(imagens/frutas/acerola.png);
+    }
+    input[value="Acerola"]:checked + label {
+        background-image: url(imagens/frutas/acerola.png);
+    }
+    input[value="Acerola"]:disabled + label {
+        background-image: url(imagens/frutas/acerola.png);
+    }
+
+    input[value="Maracujá"] + label {
+        background-image: url(imagens/frutas/maracuja.png);
+    }
+    input[value="Maracujá"]:checked + label {
+        background-image: url(imagens/frutas/maracuja.png);
+    }
+    input[value="Maracujá"]:disabled + label {
+        background-image: url(imagens/frutas/maracuja.png);
+    }
+
+    input[value="Graviola"] + label {
+        background-image: url(imagens/frutas/graviola.png);
+    }
+    input[value="Graviola"]:checked + label {
+        background-image: url(imagens/frutas/graviola.png);
+    }
+    input[value="Graviola"]:disabled + label {
+        background-image: url(imagens/frutas/graviola.png);
+    }
+/* FIM FRUTAS */
+
+/* INÍCIO PLUS */
     input[value="Baton"] + label {
         background-image: url(imagens/complementos/baton.png);
     }
@@ -546,7 +700,7 @@
     input[value="Nutella"]:disabled + label {
         background-image: url(imagens/complementos/nutella.png);
     }
-/* FIM FRUTAS */
+/* FIM PLUS */
 
 /* INÍCIO COBERTURAS */
     input[value="Calda de Chocolate"] + label {
@@ -590,107 +744,29 @@
     }
 /* FIM COBERTURAS */
 
-/* STYLE MODAL */
-    #modal-bg{
-        background-color: rgba(0, 0, 0, .9);
-        display: none;
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        z-index: 999;
-    }
-
-    .modal-box{
-        background-color: white;
-        position: fixed;
-        margin: auto;
-        border-radius: 5px;
-        top: 25%;
-        left: 50%;
-        width: 80vw;
-        transform: translate(-50%, -25%);
-        animation: 0.5s normal slidein;
-    }
-  
-    @keyframes slidein{
-        from {
-            top: 0%;
-        }
-        to {
-            top: 25%;
-        }
-    }
- 
-    .modal-content {
-        max-height: 400px;
-        overflow-y: auto;
-        background-color: white;
-        padding: 10px;
-        border-radius: 5px;
-    }
-    .modal-box form{
-        display: none;
-        padding: 10px;    
-    }
-    .modal-header{
-        background-color: #6441AB;
-        color: white;
-        position: relative;
-        text-align: center;
-        padding: 10px 45px 10px 10px;
-        font-size: 1.3em;
-        font-weight: bold;
-        border-top-left-radius: 5px;
-        border-top-right-radius: 5px;        
-    }
-    .modal-close{
-        border-radius: 50%;
-        display: block;
-        position: absolute;
-        width: 35px;
-        height: 35px;
-        line-height: 30px;
-        font-weight: bold;
-        font-size: 18px;
-        text-align: center;
-        padding: 5px;
-        cursor: pointer;
-        top: 0px;
-        left: 100%;
-        transform: translateX(-100%);
-    }
-    .modal-close:hover{
-        color: black;
-    }
-
-    .modal-footer{
-        display: flex;
-        justify-content: center;
-    }
-    .modal-footer a{
+    #whats {
         background-image: url(imagens/whats.png);
         background-repeat: no-repeat;
         background-size: contain;
         background-position: right;
+        background-position-x: calc(100% - 4px);
         background-color: #0dc143;
         color: white;
+        display: none;
         border: none;
-        width: 49.8%;
+        width: 42%;
         font-weight: bold;
         text-decoration: none;
         cursor: pointer;  
-        padding: 10px;
-        border-radius: 10px;
-        margin: 0px 0px 10px 0px;
+        padding: 10px 40px 10px 10px;
+        border-radius: 5px;
+        margin: 0px 0px 0px 10px;
     }
-    .modal-footer a:hover{
+    #whats:hover {
         background-color: #0bab3b;
-        color: black;
     }
 
-    footer{
+    footer {
         background-color: #FFDE59;
         padding: 20px 10px;
         box-shadow: 0px -1px 5px #00000030;
@@ -698,7 +774,7 @@
         align-items: center;
         justify-content: space-evenly;
     }
-    footer a{
+    footer a {
         background-image: url(imagens/insta.png);
         background-repeat: no-repeat;
         background-position: center center;
@@ -707,7 +783,7 @@
         width: 30px;
         height: 30px;
     }
-    #menu{
+    #menu {
         background-color: #631658;
         background-size: contain;
         left: 0;
@@ -717,11 +793,11 @@
         margin: auto;
         z-index: 100;
     }
-    #menu img{
+    #menu img {
         width: 100%;
     }
 
-    #menu button{
+    #menu button {
         padding: 10px;
         position: fixed;
         font-weight: bold;
@@ -734,63 +810,192 @@
         animation: 0.5s linear infinite iniciar;
         box-shadow: 0px 0px 3px 0px black;
     }
-
-    @media screen and (min-width: 600px) {
-        .modal-box{
-            width: 60vw;
-        }
+    #carrinho {
+        background-color: #FDFDFF;
+        display: none;
+        position: absolute;
+        width: 250px;
+        height: 40vh;
+        z-index: 99;
+        top: 80%;
+        left: 0;
+        padding: 20px 15px;
+        border-radius: 10px;
+        box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.4);
+    }
+    #carrinho h1 {
+        background-color: #6441ab;
+        padding: 10px 15px;
+        margin: -20px -15px 0px -15px;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        color: white;
+    }
+    #conteudo {
+        margin-top: 12px;
+        overflow: auto;
+        width: 100%;
+        height: 30vh;      
+    }
+    .titcar {
+        font-size: 1em;
+        display: block;
+        margin: 5px 0px;
+    }
+    .titcar p {
+        font-weight: normal;
+        font-size: .8em;
+        color: purple;
+        text-indent: 10px;
     }
 
-    @keyframes iniciar{
-        0%{
+    @keyframes iniciar {
+        0% {
             background-color: #FFDE59;
             color: #6441AB;
         }
-        25%{
+        25% {
             background-color: #dcbd42;
             color: #e0d1fe;
         }
-        50%{
+        50% {
             background-color: #ceae2e;
             color: white;
         }
-        75%{
+        75% {
             background-color: #dcbd42;
             color: #e0d1fe;
         }
-        100%{
+        100% {
             background-color: #FFDE59;
             color: #6441AB;
         }
     }
+    #kart {
+        background-color: #631658;
+        width: 30px;
+        height: 30px;
+        position: absolute;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        fill: white;
+        padding: 10px;
+        border-radius: 50%;
+        left: 30px;
+        top: 50%;
+        transform: translateY(-50%)
+    }
+    #qtd-kart {
+        background-color: #FF0000;
+        color: white;
+        border: none;
+        font-weight: bold;
+        position: absolute;
+        top: 2px;
+        right: -6px;
+        width: 20px;
+        height: 20px;
+        text-align: center;
+        border-radius: 50%;
+    }
+    #xcar {
+        z-index: 99;
+        background-color: #6441AB;
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        width: 100%;
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+        height: 40px;        
+        cursor: pointer;
+        font-weight: bold;
+        font-size: .9em;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: white;
+    }
+    #descarrinho {
+        display: none;
+        background-color: #FFDE59;
+        font-size: .8em;
+        padding: 10px;
+        border: 1px solid rgba(0, 0, 0, 0.5);
+        border-radius: 5px;
+    }
+    #pedcarrinho {
+        display: none;
+        background-color: #FFDE59;
+        font-size: .75em;
+        padding: 10px;
+        margin-top: 5px;
+        border: 1px solid rgba(0, 0, 0, 0.5);
+        border-radius: 5px;
+    }
+    #carrinho span {
+        position: absolute;
+        top: -15px;
+        left: 30px;
+        border-left: 25px solid transparent;
+        border-right: 25px solid transparent;
+        border-bottom: 25px solid #6441AB;
+    }
+    .sectname {
+        margin-bottom: -10px;
+        padding-bottom: 0px;
+    }
+    #emptycar {
+        background-color: #FFDE59;
+        border: 1px solid black;
+        border-radius: 10px;
+        padding: 24px;
+        display: flex;
+        height: 20vh;
+        font-size: 2.1em;
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+    }
+    #limpcar {
+        display: none;
+        background-color: #D10000;
+        font-weight: bold;
+        color: white;
+        border-radius: 5px;
+        border: none;
+        position: static;
+        margin-top: 5px;
+        padding: 10px;
+    }   
 </style>
 
 <body>
     <span id="menu">
-        <img src="imagens/menu.png" alt="Açaí">
-        <img src="imagens/lanche.png" alt="Lanches">
+        <img src="imagens/cardapio.png" alt="Cardápio">
         <button onclick="iniciarPedido()">INICIAR PEDIDO</button></span>
     <header>
         <nav>
             <a href="index.html"><img id="logo" width="70" height="70" src="imagens/logo.png" alt="logo"></a>
-            <button id='bt-start-order' onclick="newPedido()">FAZER PEDIDO</button>
-        </nav>        
+            <span id='kart'><svg xmlns="http://www.w3.org/2000/svg" height="28" viewBox="0 -960 960 960" width="28"><path d="M280-80q-33 0-56.5-23.5T200-160q0-33 23.5-56.5T280-240q33 0 56.5 23.5T360-160q0 33-23.5 56.5T280-80Zm400 0q-33 0-56.5-23.5T600-160q0-33 23.5-56.5T680-240q33 0 56.5 23.5T760-160q0 33-23.5 56.5T680-80ZM246-720l96 200h280l110-200H246Zm-38-80h590q23 0 35 20.5t1 41.5L692-482q-11 20-29.5 31T622-440H324l-44 80h480v80H280q-45 0-68-39.5t-2-78.5l54-98-144-304H40v-80h130l38 80Zm134 280h280-280Z"/></svg><input type="text" name="" id="qtd-kart" value="0" disabled></span>
+            <div id="carrinho">
+                <span></span>
+                <div id="xcar">FECHAR</div>                
+                <h1>Meu Carrinho</h1>
+                <div id="conteudo">
+                    <div id="emptycar">Seu carrinho está vázio!</div>
+                    <div id="descarrinho"></div>
+                    <div id="pedcarrinho"></div>
+                    <button id="limpcar">ESVAZIAR CARRINHO</button>
+                </div>                
+            </div>        
+                <button id='bt-start-order' onclick="newPedido()">FAZER PEDIDO</button>           
+        </nav>              
     </header>
     <main>
-        <div id="modal-bg">
-            <div class="modal-box">
-              <div class="modal-header">
-                <span class="modal-title"></span><span class="modal-close">x</span>
-              </div>
-                <div class="modal-content">
-                </div>
-                <div class="modal-footer">
-                    <a target="_blank" id="whats" href="#">Enviar Pedido</a>
-                </div>                
-            </div>
-        </div>
         <section id="cardapio">
-            <h1>Monte do seu jeito!</h1>
+            <h1>Açaí e Cremes</h1>
             <ul>
                 <li>
                     <img src="imagens/tamanhos/tigela.png" alt="Tigela de 300ml">
@@ -850,6 +1055,23 @@
                     <p>Guaraná do Amazonas de 500ml</p>                    
                 </li>  
             </ul>
+            <h1>Sucos e Vitaminas</h1>
+            <ul>
+                <li>
+                    <img src="imagens/tamanhos/suco.png" alt="Suco de 500ml">
+                    <button class="left" onclick="checkQtd('-s500')"><svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M198-421v-118h564v118H198Z"/></svg></button>                    
+                    <button class="right" onclick="checkQtd('+s500')"><svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M421-421H206v-118h215v-215h118v215h215v118H539v215H421v-215Z"/></svg></button>
+                    <input type="text" name="qtd" id="s500" value="0" disabled>
+                    <p>Suco de 500ml</p>                   
+                </li>
+                <li>
+                    <img src="imagens/tamanhos/vitamina.png" alt="Vitamina de 500ml">
+                    <button class="left" onclick="checkQtd('-v500')"><svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M198-421v-118h564v118H198Z"/></svg></button>                    
+                    <button class="right" onclick="checkQtd('+v500')"><svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M421-421H206v-118h215v-215h118v215h215v118H539v215H421v-215Z"/></svg></button>
+                    <input type="text" name="qtd" id="v500" value="0" disabled>
+                    <p>Vitamina de 500ml</p>                    
+                </li> 
+            </ul>
             <h1>Lanches</h1>
             <ul>
                 <li>
@@ -903,6 +1125,13 @@
                     <p class="descricao">Com Bacon + Cheddar</p>           
                 </li>
                 <li>
+                    <img src="imagens/tamanhos/churros.png" alt="Churros 15 Unidades">
+                    <button class="left" onclick="checkQtd('-ch15')"><svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M198-421v-118h564v118H198Z"/></svg></button>                    
+                    <button class="right" onclick="checkQtd('+ch15')"><svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M421-421H206v-118h215v-215h118v215h215v118H539v215H421v-215Z"/></svg></button>
+                    <input type="text" name="qtd" id="ch15" value="0" disabled>
+                    <p>Churros 15 Unidades</p>                  
+                </li>
+                <li>
                     <img src="imagens/tamanhos/batataespecial.png" alt="Batata Frita com Bacon + Cheddar de 300g">
                     <button class="left" onclick="checkQtd('-be300')"><svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M198-421v-118h564v118H198Z"/></svg></button>                    
                     <button class="right" onclick="checkQtd('+be300')"><svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M421-421H206v-118h215v-215h118v215h215v118H539v215H421v-215Z"/></svg></button>
@@ -911,12 +1140,95 @@
                     <p class="descricao">Com Bacon + Cheddar</p>         
                 </li>
                 <li>
+                    <img src="imagens/tamanhos/churros.png" alt="Churros 30 Unidades">
+                    <button class="left" onclick="checkQtd('-ch30')"><svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M198-421v-118h564v118H198Z"/></svg></button>                    
+                    <button class="right" onclick="checkQtd('+ch30')"><svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M421-421H206v-118h215v-215h118v215h215v118H539v215H421v-215Z"/></svg></button>
+                    <input type="text" name="qtd" id="ch30" value="0" disabled>
+                    <p>Churros 30 Unidades</p>
+                </li>
+                <li>
                     <img src="imagens/tamanhos/batataespecial.png" alt="Batata Frita com Bacon + Cheddar de 450g">
                     <button class="left" onclick="checkQtd('-be450')"><svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M198-421v-118h564v118H198Z"/></svg></button>                    
                     <button class="right" onclick="checkQtd('+be450')"><svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M421-421H206v-118h215v-215h118v215h215v118H539v215H421v-215Z"/></svg></button>
                     <input type="text" name="qtd" id="be450" value="0" disabled>
                     <p>Batata Frita de 450g</p>
                     <p class="descricao">Com Bacon + Cheddar</p>                 
+                </li>
+                <li>
+                    <img src="imagens/tamanhos/churros.png" alt="Churros 45 Unidades">
+                    <button class="left" onclick="checkQtd('-ch45')"><svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M198-421v-118h564v118H198Z"/></svg></button>                    
+                    <button class="right" onclick="checkQtd('+ch45')"><svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M421-421H206v-118h215v-215h118v215h215v118H539v215H421v-215Z"/></svg></button>
+                    <input type="text" name="qtd" id="ch45" value="0" disabled>
+                    <p>Churros 45 Unidades</p>
+                </li>
+                <li>
+                    <img src="imagens/tamanhos/pastel.png" alt="Pastel de Frango">
+                    <button class="left" onclick="checkQtd('-pf')"><svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M198-421v-118h564v118H198Z"/></svg></button>                    
+                    <button class="right" onclick="checkQtd('+pf')"><svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M421-421H206v-118h215v-215h118v215h215v118H539v215H421v-215Z"/></svg></button>
+                    <input type="text" name="qtd" id="pf" value="0" disabled>
+                    <p>Pastel de Frango</p>
+                </li>
+                <li>
+                    <img src="imagens/tamanhos/pastel.png" alt="Pastel de Frango com Cheddar">
+                    <button class="left" onclick="checkQtd('-pfch')"><svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M198-421v-118h564v118H198Z"/></svg></button>                    
+                    <button class="right" onclick="checkQtd('+pfch')"><svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M421-421H206v-118h215v-215h118v215h215v118H539v215H421v-215Z"/></svg></button>
+                    <input type="text" name="qtd" id="pfch" value="0" disabled>
+                    <p>Pastel de Frango</p>
+                    <p class="descricao">Com Cheddar</p>       
+                </li>
+                <li>
+                    <img src="imagens/tamanhos/pastel.png" alt="Pastel de Frango com Queijo">
+                    <button class="left" onclick="checkQtd('-pfq')"><svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M198-421v-118h564v118H198Z"/></svg></button>                    
+                    <button class="right" onclick="checkQtd('+pfq')"><svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M421-421H206v-118h215v-215h118v215h215v118H539v215H421v-215Z"/></svg></button>
+                    <input type="text" name="qtd" id="pfq" value="0" disabled>
+                    <p>Pastel de Frango</p>
+                    <p class="descricao">Com Queijo</p>       
+                </li>
+                <li>
+                    <img src="imagens/tamanhos/pastel.png" alt="Pastel de Frango com Catupiry">
+                    <button class="left" onclick="checkQtd('-pfc')"><svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M198-421v-118h564v118H198Z"/></svg></button>                    
+                    <button class="right" onclick="checkQtd('+pfc')"><svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M421-421H206v-118h215v-215h118v215h215v118H539v215H421v-215Z"/></svg></button>
+                    <input type="text" name="qtd" id="pfc" value="0" disabled>
+                    <p>Pastel de Frango</p>
+                    <p class="descricao">Com Cheddar</p>       
+                </li>
+                <li>
+                    <img src="imagens/tamanhos/pastel.png" alt="Pastel de Carne de Sol">
+                    <button class="left" onclick="checkQtd('-pcs')"><svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M198-421v-118h564v118H198Z"/></svg></button>                    
+                    <button class="right" onclick="checkQtd('+pcs')"><svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M421-421H206v-118h215v-215h118v215h215v118H539v215H421v-215Z"/></svg></button>
+                    <input type="text" name="qtd" id="pcs" value="0" disabled>
+                    <p>Pastel de Carne de Sol</p>
+                </li>
+                <li>
+                    <img src="imagens/tamanhos/pastel.png" alt="Pastel de Carne de Sol com Nata">
+                    <button class="left" onclick="checkQtd('-pcsn')"><svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M198-421v-118h564v118H198Z"/></svg></button>        
+                    <button class="right" onclick="checkQtd('+pcsn')"><svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M421-421H206v-118h215v-215h118v215h215v118H539v215H421v-215Z"/></svg></button>
+                    <input type="text" name="qtd" id="pcsn" value="0" disabled>
+                    <p>Pastel de Carne de Sol</p>
+                    <p class="descricao">Com Nata</p>  
+                </li>
+                <li>
+                    <img src="imagens/tamanhos/pastel.png" alt="Pastel de Carne de Sol com Queijo">
+                    <button class="left" onclick="checkQtd('-pcsq')"><svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M198-421v-118h564v118H198Z"/></svg></button>        
+                    <button class="right" onclick="checkQtd('+pcsq')"><svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M421-421H206v-118h215v-215h118v215h215v118H539v215H421v-215Z"/></svg></button>
+                    <input type="text" name="qtd" id="pcsq" value="0" disabled>
+                    <p>Pastel de Carne de Sol</p>
+                    <p class="descricao">Com Queijo</p>  
+                </li>
+                <li>
+                    <img src="imagens/tamanhos/pastel.png" alt="Pastel de Carne de Sol com Catupiry">
+                    <button class="left" onclick="checkQtd('-pcsc')"><svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M198-421v-118h564v118H198Z"/></svg></button>        
+                    <button class="right" onclick="checkQtd('+pcsc')"><svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M421-421H206v-118h215v-215h118v215h215v118H539v215H421v-215Z"/></svg></button>
+                    <input type="text" name="qtd" id="pcsc" value="0" disabled>
+                    <p>Pastel de Carne de Sol</p>
+                    <p class="descricao">Com Catupiry</p>
+                </li>
+                <li>
+                    <img src="imagens/tamanhos/pastel.png" alt="Pastel de Pizza">
+                    <button class="left" onclick="checkQtd('-pp')"><svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M198-421v-118h564v118H198Z"/></svg></button>                    
+                    <button class="right" onclick="checkQtd('+pp')"><svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M421-421H206v-118h215v-215h118v215h215v118H539v215H421v-215Z"/></svg></button>
+                    <input type="text" name="qtd" id="pp" value="0" disabled>
+                    <p>Pastel de Pizza</p>
                 </li>
             </ul>
             <h1>Combos</h1>
@@ -961,9 +1273,8 @@
                     <p>Combo G</p>
                     <p class="descricao">45 Salgados + Batata 450g + 1 Refri Pepsi ou Guaraná de 1 Litro</p>                  
                 </li>
-
             </ul>
-        </section>
+        </section>        
     </main>
     <footer>
         <p>Todo dia é dia de tomar um açaí.</p>        
@@ -973,120 +1284,95 @@
 // BOTÃO INICIAR PEDIDO //
     function iniciarPedido(){
         window.scrollTo(0,0);
-        document.getElementById('menu').setAttribute('style','display:none');
-        document.getElementById('cardapio').setAttribute('style','display:block');
+        buscar('id','#menu').setAttribute('style','display:none');
+        buscar('id','#cardapio').setAttribute('style','display:block');
     }
-// BOTÃO FECHAR MODAL //
-    let tagmodal = document.querySelectorAll('div');
-    let btclose = document.querySelector('.modal-close');
-        btclose.addEventListener('click', function(){
-            
-            closeModal();
+// ABRIR CARRINHO //
+    let mycar = buscar('id','#kart');
+        mycar.addEventListener('click', function(){
+            if(buscar('id','#carrinho').style.display == ""){
+                buscar('id','#carrinho').setAttribute('style','display:block');              
+            }else{
+                buscar('id','#carrinho').removeAttribute('style','display:block');                
+            }           
         });
-// FUNÇÃO ABRIR MODAL //
-    function openModal(title,info){      
-        document.querySelector('body').setAttribute('style','overflow:hidden');  
-        tagmodal[0].setAttribute('style','display:block');
-        if(title && info){
-            document.querySelector('.modal-title').innerHTML = title;
-            tagmodal[3].innerHTML = info;
-        }
-        tagmodal[2].setAttribute('style','display:block');
-        tagmodal[3].setAttribute('style','display:block');
-    }
-// FUNÇÃO FECHAR MODAL //
-    function closeModal(){
-        document.querySelector('body').setAttribute('style','overflow:auto');
-        tagmodal[0].setAttribute('style','display:none');
-        if(document.querySelector('.modal-title').innerHTML != "Atenção!"){
-            location.href = "index.html";
-        }
-    }
+// FECHAR CARRINHO //
+    let xcar = buscar('id','#xcar');
+        xcar.addEventListener('click', function(){
+            buscar('id','#carrinho').removeAttribute('style','display:block');            
+        });
 // FUNÇÃO PEGAR CHECKBOX //
     function getCheckbox(tipo,ch){
         return document.querySelectorAll(`[${tipo}$=${ch}]`);
     }
 // FUNÇÃO ENVIAR PEDIDO //
-    function sendPedido(){
+    function descP(){
+        let send = document.querySelectorAll('.send');      
+        let res = document.querySelectorAll('.resumo');      
+        let mult = 0;
+        let car = "";
+        let add = "";
         let data = new Date();
         let hora = data.getHours();
         let saudacao = "";
-        let tel = "558491105174";
-
-        if(hora >= 0 && hora < 12){
-            saudacao = "Bom dia";
-        }else if(hora >= 12 && hora < 18){
-            saudacao = "Boa tarde";
-        }else{
-            saudacao = "Boa noite";
-        }
-
         let resumo = "";
-        if(qtdPedido('lan').length > 0){
-            for(let rl in qtdPedido('lan')){
-                resumo += `*${qtdPedido('lan')[rl]}*%0A`;
+            for(let r = 0; r < res.length; r++){
+                resumo += `*${res[r].innerText}*%0A`;
             }
-        }
-        for(let r in qtdPedido()){
-            resumo += `*${qtdPedido()[r]}*%0A`;
-        }
-        
-
-        let res = document.getElementsByClassName('send');
-        let resmsg = [`https://wa.me/${tel}?text=${saudacao}, Açaíteria Jardins!%0AEsse é o meu pedido:%0A`,`${resumo}%0A`];
-        let msg = "";
-        let whats = document.getElementById('whats');
-
-        for(let s=0; s<res.length; s++){
-            
-            if(res[s].nodeName != 'INPUT'){
-
-                if(res[s].nodeName == 'SPAN'){
-                    let adn = res[s].innerText;
-                    let newadn = adn.split('\n');
-                    resmsg.push(newadn[0]+' ');                   
-                }else{                  
-                    resmsg.push('*'+res[s].innerText+'*%0A');
-                }
-                
+              
+        let tel = "558491105174";     
+            if(hora >= 0 && hora < 12){
+                saudacao = "Bom dia";
+            }else if(hora >= 12 && hora < 18){
+                saudacao = "Boa tarde";
             }else{
-                res[s].value = res[s].value.trim();
+                saudacao = "Boa noite";
+            }
+        let ped = `https://wa.me/${tel}?text=*${saudacao}, Açaíteria Jardins!*%0AEsse é o meu pedido:%0A${resumo}%0A`;
 
-                if(s == res.length-1){
-                    resmsg.push(res[s].value);
-                }else{
-                    if(res[s+1].name == 'nomepedido' && res[s].value != ""){
-                        resmsg.push(res[s].value+'%0A%0A');
-                    }else if(res[s].name == 'nomepedido' && res[s].value != ""){
-                        resmsg.push('*Para: '+capitalize(res[s].value)+'*%0A');
-                    }else if(res[s].value != ""){
-                        resmsg.push(res[s].value+'%0A');
-                    }
-                }
-                
+        for(let s = 0; s < send.length; s++){
+            switch(send[s].nodeName){
+                case 'H2':                    
+                    car += `<h2>${send[s].innerText}</h2>`;
+                    ped += `*${send[s].innerText}*%0A`;                    
+                break;
+                case 'INPUT':
+                    if(send[s].id.search('add') >= 0){
+                        mult = send[s].value;
+                    }else if(send[s].name.search('nomepedido') >= 0){                            
+                        if(s > 0){
+                            car += `<br><h2>Para: ${send[s].value}</h2>`;
+                            ped += `%0A*Para: ${send[s].value}*%0A`;                                
+                        }else{
+                            car += `<h2>Para: ${send[s].value}</h2>`;
+                            ped += `*Para: ${send[s].value}*%0A`;
+                        }                           
+                    }else{
+                        car += `<p>${send[s].value}</p>`;
+                        ped += `${send[s].value}%0A`;
+                    }                                                        
+                break;
+                case 'P':                    
+                    let preco = parseFloat(send[s].innerText.substring(4).replace(',','.'))
+                    car += `<p>${mult}x ${add} +${monetize(preco * mult)}</p>`;
+                    ped += `${mult}x ${add} +${monetize(preco * mult)}%0A`;
+                break;
+                case 'SPAN':
+                    add = send[s].innerText;
+                break;
+                default:
+                    console.log("Texto não encontrado!");
             }            
         }
-
-        for(let n in resmsg){
-            msg += resmsg[n];
-        }
-        if(resmsg.length == 2 && resmsg[1].search('Batata') >= 0 || resmsg[1].search('Salgados') >= 0 || resmsg[1].search('Combo') >= 0){
-            whats.setAttribute('href', msg);
-            whats.setAttribute('style','display:block');
-            document.getElementById('bt-generate').setAttribute('style','display:none');
-            openModal("Pedido gerado com sucesso!","Envie o pedido no Whatsapp clicando no botão abaixo");
-        }
-        else if(resmsg.length > 2){
-            whats.setAttribute('href', msg);
-            whats.setAttribute('style','display:block');
-            document.getElementById('bt-generate').setAttribute('style','display:none');
-            openModal("Pedido gerado com sucesso!","Envie o pedido no Whatsapp clicando no botão abaixo");
+        if(car.length){
+            buscar('id','#whats').setAttribute('style',`display:block`);            
+            buscar('id','#pedcarrinho').setAttribute('style',`display:block`);                   
         }else{
-            openModal("Atenção!","Escolha os itens do seu pedido.");
-            whats.setAttribute('style','display:none');
-            return false;
-        }
-        
+            buscar('id','#whats').removeAttribute('style',`display:block`);          
+            buscar('id','#pedcarrinho').removeAttribute('style',`display:block`);          
+        }        
+            buscar('id','#whats').setAttribute('href',`${ped}`);
+            cEl('inH',buscar('id','#pedcarrinho'),car);
     }
 
     function selectRadio(radio){
@@ -1094,63 +1380,34 @@
         let active = [];
         let desactive = [];
         let compname = radio.name;
-        let compvalue = radio.value;       
-        
-        if(compname.search('base-tigelade1l') >= 0 || compname.search('base-barca') >= 0 || compname.search('base-roleta') >= 0 || compname.search('complemento') >= 0){
-            numcheck = 3;
-        }
-        else if(compname.search('base-tigela') >= 0 || compname.search('cobertura') >= 0 || compname.search('fruta-barca') >= 0 || compname.search('fruta-roleta') >= 0){
-            numcheck = 2;
-        }       
-        else if(compname.search('guacob') >= 0 || compname.search('guapac') >= 0 || compname.search('sabor') >= 0 || compname.search('fruta') >= 0 || compname.search('plus') >= 0){
-            numcheck = 1;
-        }
-        
-
+        let compvalue = radio.value;
+        let numcheck = radio.max;
+    
         for(item of itens){            
             if(item.checked){
-                active.push(item.id);             
-                document.getElementById(item.id).setAttribute('class','send');
+                active.push(item.id);    
+                document.getElementById(item.id).setAttribute('class','send');                
             }else{
                 desactive.push(item.id);
                 document.getElementById(item.id).removeAttribute('class','send');
-            }  
-        }
-            if(active.length > 0){
-                document.getElementById(compname).setAttribute('class','send');
-            }else{
-                document.getElementById(compname).removeAttribute('class','send');
-            }        
-            if(active.length >= numcheck){                
-                for(let des=0; des<desactive.length; des++){                   
-                    document.getElementById(desactive[des]).setAttribute('disabled','true');           
-                }
-            }else{
-                for(let atv=0; atv<desactive.length; atv++){ 
-                    document.getElementById(desactive[atv]).removeAttribute('disabled','true');        
-                }
             }
-
-
-            if(compname.search('sabor') >= 0){
-            if(compvalue != "Sabor Tradicional" && radio.checked == true){                
-                document.getElementById(`section${compname.substring(5)}`).setAttribute('style','display:block');
-                if(document.getElementById(`comcobertura${compname.substring(compname.length-1)}`).checked){
-                    document.getElementById(`comcobertura${compname.substring(compname.length-1)}`).setAttribute('class','send');
-                    document.getElementById(`guacob${compname.substring(5)}`).setAttribute('class','send');
-                }
-
-
-            }else{
-                document.getElementById(`section${compname.substring(5)}`).setAttribute('style','display:none');
-                if(document.getElementById(`comcobertura${compname.substring(compname.length-1)}`).checked){
-                document.getElementById(`comcobertura${compname.substring(compname.length-1)}`).removeAttribute('class','send');
-                document.getElementById(`guacob${compname.substring(5)}`).removeAttribute('class','send');
-                }
+        }
                 
+        if(active.length > 0){
+            document.getElementById(compname).setAttribute('class','send');
+        }else{
+            document.getElementById(compname).removeAttribute('class','send');
+        }    
+        if(active.length >= numcheck){                
+            for(let des = 0; des < desactive.length; des++){                
+                document.getElementById(desactive[des]).setAttribute('disabled','true');
+            }
+        }else{
+            for(let atv = 0; atv < desactive.length; atv++){ 
+                document.getElementById(desactive[atv]).removeAttribute('disabled','true');        
             }
         }
-    
+        descP();
     }
 
     function checkQtd(valor){
@@ -1159,272 +1416,226 @@
 	    let elemento = document.getElementById(escolha);
         let listadd = document.getElementsByName(elemento.name);
         let qtd = parseInt(elemento.value);
-        let qtdadd = 0;  
-         
+        let qadd = 0;
+        let kart = buscar('id','#qtd-kart');
+        let qped = parseInt(kart.value);
+        let sec = document.getElementsByTagName('section');
+        
 		if(sinal === "+"){        
 			elemento.value = qtd += 1;
+            if(valor.search('add') < 0){
+                kart.value = qped += 1;
+            }            
 		}
-        else if(sinal === "-" && qtd > 0){
-            elemento.value = qtd -= 1;            
+        if(sinal === "-" && qtd > 0){
+            elemento.value = qtd -= 1;
+            if(valor.search('add') < 0){
+                kart.value = qped -= 1;
+            }                     
 		}
-    
+
+        cEl('inH',buscar('id','#descarrinho'),'')
+        for(let i = 0; i < qtdPedido().length; i++){
+            let ph2 = cEl('create','h2');
+                cEl('inH',ph2,plural(qtdPedido()[i]));
+                cEl('set',ph2,'class,resumo');
+                cEl('append',ph2,buscar('id','#descarrinho'));
+        }
         if(valor.search('add') >= 0){
             for(let q = 0; q < listadd.length; q++){
-                qtdadd += parseInt(listadd[q].value);                
-            }
-            if(qtdadd > 0){
-                document.getElementById(elemento.name).setAttribute('class','send');
+                qadd += parseInt(listadd[q].value);        
+            }      
+            if(qadd > 0){
+                cEl('set',buscar('id',`#tit${elemento.name}`),`class,send`);
             }else{
-                document.getElementById(elemento.name).removeAttribute('class','send');
+                cEl('rem',buscar('id',`#tit${elemento.name}`),`class,send`);
             }
             if(qtd > 0){
-                document.getElementById(`tit${escolha}`).setAttribute('class','send');
-                document.getElementById(`-${escolha}`).setAttribute('style','display:flex');
-                elemento.setAttribute('class','send');
-                elemento.setAttribute('style','display:unset');
+                cEl('set',buscar('id',`#-${escolha}`),`style,display:flex`);
+                cEl('set',elemento,`class,send`);
+                cEl('rem',elemento,`style,display:flex`);
+                cEl('set',buscar('id',`#span${escolha}`),`class,send`);
+                cEl('set',buscar('id',`#pco${escolha}`),`class,send`);
             }else{
-                document.getElementById(`tit${escolha}`).removeAttribute('class','send');
-                document.getElementById(`-${escolha}`).setAttribute('style','display:none');
-                elemento.removeAttribute('class','send');
-                elemento.setAttribute('style','display:none');
+                cEl('set',buscar('id',`#-${escolha}`),`style,display:none`);
+                cEl('rem',elemento,`class,send`);                
+                cEl('set',elemento,`style,display:none`);
+                cEl('rem',buscar('id',`#span${escolha}`),`class,send`);
+                cEl('rem',buscar('id',`#pco${escolha}`),`class,send`);
             }
-        }
-        
-        if(qtdPedido('desc').length > 0 && document.getElementById('cardapio').style.display != 'none' || qtdPedido('lan').length > 0 && document.getElementById('cardapio').style.display != 'none'){
-            document.getElementById('bt-start-order').setAttribute('style','display:unset');
-        }else{
-            document.getElementById('bt-start-order').setAttribute('style','display:none');
-        }
+            descP();         
+        }        
+            if(qped > 0 && sec.length == 1){
+                buscar('id','#bt-start-order').setAttribute('style','display:block');
+                buscar('id','#limpcar').setAttribute('style','display:block');
+            }else{
+                buscar('id','#bt-start-order').removeAttribute('style','display:block');
+                buscar('id','#limpcar').removeAttribute('style','display:block');
+            }
     }
-
-    function qtdPedido(des){
-        let t300 = document.getElementById('t300').value;
-        let t500 = document.getElementById('t500').value;
-        let t1000 = document.getElementById('t1000').value;
-        let r1000 = document.getElementById('r1000').value;
-        let b1000 = document.getElementById('b1000').value;
-        let g300 = document.getElementById('g300').value;
-        let g500 = document.getElementById('g500').value;
-        let bf150 = document.getElementById('bf150').value;
-        let bf300 = document.getElementById('bf300').value;
-        let bf450 = document.getElementById('bf450').value;
-        let be150 = document.getElementById('be150').value;
-        let be300 = document.getElementById('be300').value;
-        let be450 = document.getElementById('be450').value;
-        let s15 = document.getElementById('s15').value;
-        let s30 = document.getElementById('s30').value;
-        let s45 = document.getElementById('s45').value;
-        let cp = document.getElementById('cp').value;
-        let cm = document.getElementById('cm').value;
-        let cg = document.getElementById('cg').value;
-        let cmc = document.getElementById('cmc').value;
-        let cmcc = document.getElementById('cmcc').value;
-        let descpedidos = [];
-        let qdp = [];
-        let lanches = [];
-               
-        if(t300 > 0){
-            for(let t3=0; t3<t300; t3++){
-                descpedidos.push("Tigela de 300ml");
-            }
-            if(t300 > 1){
-                qdp.push(`${t300} Tigelas de 300ml`);
+    function plural(s){
+        let arr = s.split(" ");
+        let plural = arr[0];
+            if(arr[0] == 1){
+                return s;
             }else{
-                qdp.push(`${t300} Tigela de 300ml`);
-            }      
-        }
-        if(t500 > 0){
-            for(let t5=0; t5<t500; t5++){
-                descpedidos.push("Tigela de 500ml");
-            }
-            if(t500 > 1){
-                qdp.push(`${t500} Tigelas de 500ml`);
-            }else{
-                qdp.push(`${t500} Tigela de 500ml`);
-            }            
-        }
-        if(t1000 > 0){
-            for(let t1=0; t1<t1000; t1++){
-                descpedidos.push("Tigela de 1L");
-            }
-            if(t1000 > 1){
-                qdp.push(`${t1000} Tigelas de 1L`);
-            }else{
-                qdp.push(`${t1000} Tigela de 1L`);
-            }           
-        }
-        if(r1000 > 0){
-            for(let r1=0; r1<r1000; r1++){
-                descpedidos.push("Roleta de 1L");
-            }
-            if(b1000 > 1){
-                qdp.push(`${r1000} Roletas de 1L`);
-            }else{
-                qdp.push(`${r1000} Roleta de 1L`);
-            }             
-        }
-        if(b1000 > 0){
-            for(let b1=0; b1<b1000; b1++){
-                descpedidos.push("Barca de 1L");
-            }
-            if(b1000 > 1){
-                qdp.push(`${b1000} Barcas de 1L`);
-            }else{
-                qdp.push(`${b1000} Barca de 1L`);
-            }             
-        }
-        if(g300 > 0){
-            for(let g3=0; g3<g300; g3++){
-                descpedidos.push("Guaraná de 300ml");
-            }
-            if(g300 > 1){
-                qdp.push(`${g300} Guaranás de 300ml`);
-            }else{
-                qdp.push(`${g300} Guaraná de 300ml`);
-            }  
-        }
-        if(g500 > 0){
-            for(let g5=0; g5<g500; g5++){
-                descpedidos.push("Guaraná de 500ml");
-            }
-            if(g500 > 1){
-                qdp.push(`${g500} Guaranás de 500ml`);
-            }else{
-                qdp.push(`${g500} Guaraná de 500ml`);
-            }  
-        }
-        
-            if(bf150 > 1){
-                lanches.push(`${bf150} Batatas Fritas de 150g`);
-            }else if(bf150 == 1){
-                lanches.push(`${bf150} Batata Frita de 150g`);
-            }  
-    
-            if(bf300 > 1){
-                lanches.push(`${bf300} Batatas Fritas de 300g`);
-            }else if(bf300 == 1){
-                lanches.push(`${bf300} Batata Frita de 300g`);
-            }  
-        
-            if(bf450 > 1){
-                lanches.push(`${bf450} Batatas Fritas de 450g`);
-            }else if(bf450 == 1){
-                lanches.push(`${bf450} Batata Frita de 450g`);
-            }  
-        
-            if(be150 > 1){
-                lanches.push(`${be150} Batatas Fritas Especial de 150g`);
-            }else if(be150 == 1){
-                lanches.push(`${be150} Batata Frita Especial de 150g`);
-            }  
-        
-            if(be300 > 1){
-                lanches.push(`${be300} Batatas Fritas Especial de 300g`);
-            }else if(be300 == 1){
-                lanches.push(`${be300} Batata Frita Especial de 300g`);
-            }  
-        
-            if(be450 > 1){
-                lanches.push(`${be450} Batatas Fritas Especial de 450g`);
-            }else if(be450 == 1){
-                lanches.push(`${be450} Batata Frita Especial de 450g`);
-            }  
-        
-            if(s15 > 1){
-                lanches.push(`${s15} Cx Salgados 15 Unidades`);
-            }else if(s15 == 1){
-                lanches.push(`${s15} Cx Salgados 15 Unidades`);
-            }  
-        
-            if(s30 > 1){
-                lanches.push(`${s30} Cx Salgados 30 Unidades`);
-            }else if(s30 == 1){
-                lanches.push(`${s30} Cx Salgados 30 Unidades`);
-            }  
-        
-            if(s45 > 1){
-                lanches.push(`${s45} Cx Salgados 45 Unidades`);
-            }else if(s45 == 1){
-                lanches.push(`${s45} Cx Salgados 45 Unidades`);
-            }  
-        
-            if(cp > 1){
-                lanches.push(`${cp} Combos Pequeno`);
-            }else if(cp == 1){
-                lanches.push(`${cp} Combo Pequeno`);
-            }  
-        
-            if(cm > 1){
-                lanches.push(`${cm} Combos Médio`);
-            }else if(cm == 1){
-                lanches.push(`${cm} Combo Médio`);
-            }  
-        
-            if(cg > 1){
-                lanches.push(`${cg} Combos Grande`);
-            }else if(cg == 1){
-                lanches.push(`${cg} Combo Grande`);
-            }  
-        
-            if(cmc > 1){
-                lanches.push(`${cmc} Combos Médio Calabresa`);
-            }else if(cmc == 1){
-                lanches.push(`${cmc} Combo Médio Calabresa`);
-            }  
-        
-            if(cmcc > 1){
-                lanches.push(`${cmcc} Combos Médio Coca Cola`);
-            }else if(cmcc == 1){
-                lanches.push(`${cmcc} Combo Médio Coca Cola`);
-            }  
-                
-        if(des == "desc"){
-            return descpedidos;
-        }else if(des == "lan"){
-            return lanches;
-        }else{
-            return qdp;
-        }
-    }
-
-    function formaText(opt,tx){
-
-        if(opt==="juntar"){
-        let txmin = tx.toLowerCase();
-        let txsepare = txmin.split(" ");
-        let newtx = "";
-
-            if(txsepare.length>1){
-                for(let t=0; t<txsepare.length; t++){
-                    newtx += txsepare[t];                    
+                for(let h = 1; h < arr.length; h++){
+                    if(h == 1){
+                        if(arr[h] == "Pastel"){
+                            arr[h] = "Pastéi";
+                        }
+                        plural += ` ${arr[h]}s` 
+                    }else{
+                        if(arr[h] == "Especial"){
+                            arr[h] = "Especiais";
+                        }
+                        plural += ` ${arr[h]}`;
+                    }
                 }
-                return newtx;
             }
-            return txmin;
-        }
-        
-        if(opt === "separar"){
-        let opcao = ["Tigela de 300ml","Tigela de 500ml","Tigela de 1L","Roleta de 1L","Barca de 1L","Guaraná de 300ml","Guaraná de 500ml"];
-            if(tx.search('tigelade300') >= 0){
-                return opcao[0];
-            }else if(tx.search('tigelade500') >= 0){
-                return opcao[1];
-            }else if(tx.search('tigelade1l') >= 0){
-                return opcao[2];
-            }else if(tx.search('roletade1l') >= 0){
-                return opcao[3];
-            }else if(tx.search('barcade1l') >= 0){
-                return opcao[4];
-            }else if(tx.search('guaranáde300') >= 0){
-                return opcao[5];
-            }else if(tx.search('guaranáde500') >= 0){
-                return opcao[6];
-            }            
-        }
+        return plural;
     }
-
+    buscar('id','#limpcar').addEventListener('click', function(){
+        qtdPedido('limpar');
+    });
+    function qtdPedido(des){
+        const produtos = ['#t300','#t500','#t1000','#r1000','#b1000','#g300','#g500','#s500','#v500','#bf150','#bf300','#bf450','#be150','#be300','#be450','#s15','#s30','#s45','#ch15','#ch30','#ch45','#pf','#pfch','#pfq','#pfc','#pcs','#pcsn','#pcsq','#pcsc','#pp','#cp','#cm','#cmc','#cmcc','#cg'];
+        let pedidos = [];        
+        for(let pro = 0; pro < produtos.length; pro++){
+            if(des){
+                buscar('id',produtos[pro]).value = 0;
+                buscar('id','#qtd-kart').value = 0;
+                buscar('id','#bt-start-order').removeAttribute('style','display:block');
+                buscar('id','#limpcar').removeAttribute('style','display:block');
+            }                 
+            if(buscar('valor',produtos[pro]) > 0){                                           
+                switch(produtos[pro]){
+                    case "#t300":                        
+                        pedidos.push(`${buscar('valor',produtos[pro])} Tigela de 300ml`);                  
+                    break;
+                    case "#t500":
+                        pedidos.push(`${buscar('valor',produtos[pro])} Tigela de 500ml`);
+                    break;
+                    case "#t1000":
+                        pedidos.push(`${buscar('valor',produtos[pro])} Tigela de 1 Litro`);
+                    break;
+                    case "#r1000":
+                        pedidos.push(`${buscar('valor',produtos[pro])} Roleta de 1 Litro`);
+                    break;
+                    case "#b1000":
+                        pedidos.push(`${buscar('valor',produtos[pro])} Barca de 1 Litro`);
+                    break;
+                    case "#g300":
+                        pedidos.push(`${buscar('valor',produtos[pro])} Guaraná de 300ml`);
+                    break;
+                    case "#g500":
+                        pedidos.push(`${buscar('valor',produtos[pro])} Guaraná de 500ml`);
+                    break;
+                    case "#s500":
+                        pedidos.push(`${buscar('valor',produtos[pro])} Suco de 500ml`);
+                    break;
+                    case "#v500":
+                        pedidos.push(`${buscar('valor',produtos[pro])} Vitamina de 500ml`);
+                    break;
+                    case "#bf150":
+                        pedidos.push(`${buscar('valor',produtos[pro])} Batata de 150g`);
+                    break;
+                    case "#bf300":
+                        pedidos.push(`${buscar('valor',produtos[pro])} Batata de 300g`);
+                    break;
+                    case "#bf450":
+                        pedidos.push(`${buscar('valor',produtos[pro])} Batata de 450g`);
+                    break;
+                    case "#be150":
+                        pedidos.push(`${buscar('valor',produtos[pro])} Batata Especial de 150g`);
+                    break;
+                    case "#be300":
+                        pedidos.push(`${buscar('valor',produtos[pro])} Batata Especial de 300g`);
+                    break;
+                    case "#be450":
+                        pedidos.push(`${buscar('valor',produtos[pro])} Batata Especial de 450g`);
+                    break;
+                    case "#s15":
+                        pedidos.push(`${buscar('valor',produtos[pro])} Cx de Salgados 15und`);
+                    break;
+                    case "#s30":
+                        pedidos.push(`${buscar('valor',produtos[pro])} Cx de Salgados 30und`);
+                    break;
+                    case "#s45":
+                        pedidos.push(`${buscar('valor',produtos[pro])} Cx de Salgados 45und`);
+                    break;
+                    case "#ch15":
+                        pedidos.push(`${buscar('valor',produtos[pro])} Cx de Churros 15und`);
+                    break;
+                    case "#ch30":
+                        pedidos.push(`${buscar('valor',produtos[pro])} Cx de Churros 30und`);
+                    break;
+                    case "#ch45":
+                        pedidos.push(`${buscar('valor',produtos[pro])} Cx de Churros 45und`);
+                    break;
+                    case "#pf":
+                        pedidos.push(`${buscar('valor',produtos[pro])} Pastel de Frango`);
+                    break;
+                    case "#pfch":
+                        pedidos.push(`${buscar('valor',produtos[pro])} Pastel de Frango com Cheddar`);
+                    break;
+                    case "#pfq":
+                        pedidos.push(`${buscar('valor',produtos[pro])} Pastel de Frango com Queijo`);
+                    break;
+                    case "#pfc":
+                        pedidos.push(`${buscar('valor',produtos[pro])} Pastel de Frango com Catupiry`);
+                    break;
+                    case "#pcs":
+                        pedidos.push(`${buscar('valor',produtos[pro])} Pastel de Carne de Sol`);
+                    break;
+                    case "#pcsn":
+                        pedidos.push(`${buscar('valor',produtos[pro])} Pastel de Carne de Sol com Nata`);
+                    break;
+                    case "#pcsq":
+                        pedidos.push(`${buscar('valor',produtos[pro])} Pastel de Carne de Sol com Queijo`);
+                    break;
+                    case "#pcsc":
+                        pedidos.push(`${buscar('valor',produtos[pro])} Pastel de Carne de Sol com Catupiry`);
+                    break;
+                    case "#pp":
+                        pedidos.push(`${buscar('valor',produtos[pro])} Pastel de Pizza`);
+                    break;
+                    case "#cp":
+                        pedidos.push(`${buscar('valor',produtos[pro])} Combo P`);
+                    break;
+                    case "#cm":
+                        pedidos.push(`${buscar('valor',produtos[pro])} Combo M`);
+                    break;
+                    case "#cmc":
+                        pedidos.push(`${buscar('valor',produtos[pro])} Combo M Calabresa`);
+                    break;
+                    case "#cmcc":
+                        pedidos.push(`${buscar('valor',produtos[pro])} Combo M Coca Cola`);
+                    break;
+                    case "#cg":
+                        pedidos.push(`${buscar('valor',produtos[pro])} Combo G`);
+                    break;
+                    default:
+                        console.log("Quantidade não encontrada!");
+                }
+            }
+        }
+        if(pedidos.length > 0){
+            buscar('id','#descarrinho').setAttribute('style','display:block');            
+            buscar('id','#emptycar').setAttribute('style','display:none');
+        }else{
+            buscar('id','#descarrinho').removeAttribute('style','display:block');
+            buscar('id','#emptycar').removeAttribute('style','display:none');
+        }
+        return pedidos;      
+    }
+    buscar('id','#bt-start-order').addEventListener('click', function(){
+        buscar('id','#bt-start-order').removeAttribute('style','display:block');
+        buscar('id','#limpcar').removeAttribute('style','display:block');
+    });
+    
     function newPedido(){
-        document.getElementById('bt-start-order').setAttribute('style','display:none');
+        window.scrollTo(0,0);
         let bases = ["Açaí Tradicional","Creme de Cupuaçu","Creme de Ovomaltine","Creme de Amendoim","Creme de Ninho Trufado","Creme de Morango","Creme de Tapioca","Creme de Oreo"];       
         let complementos = ["Amendoim","Confetes","Chocoboll","Granola","Castanha","Jujuba","Ovomaltine","Paçoca","Canudo Wafer","Gotas de Chocolate","Leite em pó","Farinha Láctea","Fini","Bis"];
         let frutas = ["Banana","Morango","Kiwi","Uva"];
@@ -1432,466 +1643,417 @@
         let plus = ["Baton","Nutella"];
         let adicionais = ["Baton","Nutella","Amendoim","Confetes","Chocoboll","Granola","Castanha","Jujuba","Ovomaltine","Paçoca","Canudo Wafer","Gotas de Chocolate","Leite em pó","Farinha Láctea","Fini","Bis","Calda de Chocolate","Calda de Morango","Calda de Uva","Leite Condensado"];
         let guaranas = ["Tradicional","Chocolate","Morango","Uva","Açaí"];
-        let guaraoptions1 = ["Com Cobertura", "Sem Cobertura"];
-        let guaraoptions2 = ["Com Paçoca", "Sem Paçoca"];
+        let guacobertura = ["Com Cobertura", "Sem Cobertura"];
+        let guapacoca = ["Com Paçoca", "Sem Paçoca"];
+        let salgados = ["Coxinha de Frango","Bolinho de Charque","Pastel Carne de Sol"];
+        let churros = ["Doce de Leite"];
+        let bebidas = ["Água 510ml","Pepsi 200ml","Coca Cola 350ml","Guaraná Antarctica 350ml","Guaraná Antarctica 1L","Pepsi 1L"];
+        let sucovit = ["Uva","Cajá","Goiaba","Acerola","Mangaba","Morango","Graviola","Maracujá"];
+        let ketchup = ["Quero Ketchup", "Não Quero Ketchup"];
+        let maionese = ["Quero Maionese", "Não Quero Maionese"];
+        let mostarda = ["Quero Mostarda", "Não Quero Mostarda"];
         let tagmain = document.querySelector('main');
-
-        document.getElementById('cardapio').setAttribute('style','display:none');
-
-/// LAÇO DE CRIAÇÃO DOS LANCHES ///
-        if(qtdPedido('lan').length > 0 && qtdPedido().length == 0){   
-            let sectlan = document.createElement('section');
-            let hl1 = document.createElement('h1');
-                hl1.innerHTML = "Resumo do Pedido:"; 
-                sectlan.appendChild(hl1);    
-            for(let l=0; l<qtdPedido('lan').length; l++){                
-                let hl2 = document.createElement('p');
-                    hl2.innerHTML = `${qtdPedido('lan')[l]}`;                    
-                    sectlan.appendChild(hl2);
-            }
-            tagmain.appendChild(sectlan);     
-        }
-
-/// LAÇO DE CRIAÇÃO DE PEDIDOS ///
-        for(let pd=0; pd<qtdPedido('desc').length; pd++){ 
-            
-        if(qtdPedido('desc')[pd] !== "Guaraná de 300ml" && qtdPedido('desc')[pd] !== "Guaraná de 500ml"){ 
-
-/// SEÇÃO DE CREMES ///
-        let sectionbase = document.createElement('section');
-        let inputname = document.createElement('input');
-            if(qtdPedido('desc').length>1){
-                let descname = document.createElement('h2');
-                descname.innerHTML = "Digite o nome:";
-
-                inputname.setAttribute('placeholder',`Para quem vai essa ${qtdPedido('desc')[pd]}?`);    
-                inputname.setAttribute('id',`nome-${formaText('juntar',qtdPedido('desc')[pd]+'-'+[pd])}`);          
-                inputname.setAttribute('name','nomepedido');          
-                inputname.setAttribute('type','text');          
-                inputname.setAttribute('class','send');
-                inputname.setAttribute('onkeyup','loadName(this)');
-                sectionbase.appendChild(descname);
-                sectionbase.appendChild(inputname);
-            }
-
-        let titlebase = document.createElement('h2');
-        let descbase = document.createElement('p');
-        if(qtdPedido('desc')[pd] == "Tigela de 1L"){
-            descbase.innerHTML = "Escolha até 3 bases";
-        }else{
-            descbase.innerHTML = "Escolha até 2 bases";
-        }
-            titlebase.innerHTML = `Base da ${qtdPedido('desc')[pd]}`;
-            sectionbase.appendChild(titlebase);
-            sectionbase.appendChild(descbase);
-    
-        let ulbase = document.createElement('ul');
-/// LAÇO DE CRIAÇÃO DE LISTA DOS CREMES ///
-        for(let bas=0; bas<bases.length; bas++){
-
-        let libase = document.createElement('li');
-            selbase = document.createElement('input');
-            selbase.setAttribute('type','checkbox');
-            titlebase.setAttribute('id',`base-${formaText('juntar',qtdPedido('desc')[pd]+'-'+[pd])}`);
-            selbase.setAttribute('name',`base-${formaText('juntar',qtdPedido('desc')[pd]+'-'+[pd])}`);
-            selbase.setAttribute('id',`${formaText('juntar',bases[bas]+[pd])}`);          
-            selbase.setAttribute('value',`${bases[bas]}`);          
-            selbase.setAttribute('onclick',`selectRadio(this)`);           
-            libase.appendChild(selbase);            
-            labelbase = document.createElement('label');
-            labelbase.setAttribute('for',`${formaText('juntar',bases[bas]+[pd])}`);
-            libase.appendChild(labelbase);          
-            spanbase = document.createElement('span');               
-            spanbase.innerHTML = bases[bas];
-            labelbase.appendChild(spanbase);          
-            libase.setAttribute('class',`${'litwo'}`);
-            ulbase.appendChild(libase);
-        }
-            ulbase.setAttribute('class','coltwo');
-            sectionbase.appendChild(ulbase);
-            tagmain.appendChild(sectionbase);
-
-
-/// SEÇÃO DE COMPLEMENTOS ///
-        let sectioncomplemento = document.createElement('section');
-        let titlecomplemento = document.createElement('h2');
-        let desccomplemento = document.createElement('p');
-            desccomplemento.innerHTML = "Escolha até 3 complementos";
-
-            titlecomplemento.innerHTML = `Complementos da ${qtdPedido('desc')[pd]}`;
-            sectioncomplemento.appendChild(titlecomplemento);
-            sectioncomplemento.appendChild(desccomplemento);
-            
-        let ulcomplemento = document.createElement('ul');
-
-        for(let comp=0; comp<complementos.length; comp++){
-/// LAÇO DE CRIAÇÃO DE LISTA DOS COMPLEMENTOS ///
-        let licomplemento = document.createElement('li');
-            selcomplemento = document.createElement('input');
-            selcomplemento.setAttribute('type','checkbox');            
-            titlecomplemento.setAttribute('id',`complemento-${formaText('juntar',qtdPedido('desc')[pd]+'-'+[pd])}`);
-            selcomplemento.setAttribute('name',`complemento-${formaText('juntar',qtdPedido('desc')[pd]+'-'+[pd])}`);
-            selcomplemento.setAttribute('id',`${formaText('juntar',complementos[comp]+[pd])}`);          
-            selcomplemento.setAttribute('value',`${complementos[comp]}`);          
-            selcomplemento.setAttribute('onclick',`selectRadio(this)`);
-            licomplemento.appendChild(selcomplemento);
-            labelcomplemento = document.createElement('label');
-            labelcomplemento.setAttribute('for',`${formaText('juntar',complementos[comp]+[pd])}`);
-            licomplemento.appendChild(labelcomplemento);
-            spancomplemento = document.createElement('span');                               
-            spancomplemento.innerHTML = complementos[comp];
-            labelcomplemento.appendChild(spancomplemento);               
-            licomplemento.setAttribute('class','litwo');            
-            ulcomplemento.appendChild(licomplemento);
-        }
-            ulcomplemento.setAttribute('class','coltwo');
-            sectioncomplemento.appendChild(ulcomplemento);
-            tagmain.appendChild(sectioncomplemento);
-
-
-/// SEÇÃO DE FRUTAS ///
-        let sectionfruta = document.createElement('section');
-        let titlefruta = document.createElement('h2');
-        let descfruta = document.createElement('p');
-            descfruta.innerHTML = "Escolha até 1 fruta";
-    
-            titlefruta.innerHTML = `Fruta da ${qtdPedido('desc')[pd]}`;
-            sectionfruta.appendChild(titlefruta);
-            sectionfruta.appendChild(descfruta);
-            
-        let ulfruta = document.createElement('ul');
-/// LAÇO DE CRIAÇÃO DE LISTA DAS FRUTAS ///
-        for(let frut=0; frut<frutas.length; frut++){
-
-        let lifruta = document.createElement('li');
-            selfruta = document.createElement('input');
-            selfruta.setAttribute('type','checkbox');
-            titlefruta.setAttribute('id',`fruta-${formaText('juntar',qtdPedido('desc')[pd]+'-'+[pd])}`);
-            selfruta.setAttribute('name',`fruta-${formaText('juntar',qtdPedido('desc')[pd]+'-'+[pd])}`);
-            selfruta.setAttribute('id',`${formaText('juntar',frutas[frut]+[pd])}`);          
-            selfruta.setAttribute('value',`${frutas[frut]}`);          
-            selfruta.setAttribute('onclick',`selectRadio(this)`);
-            lifruta.appendChild(selfruta);
-            labelfruta = document.createElement('label');
-            labelfruta.setAttribute('for',`${formaText('juntar',frutas[frut]+[pd])}`);
-            lifruta.appendChild(labelfruta);
-            spanfruta = document.createElement('span');             
-            spanfruta.innerHTML = frutas[frut];  
-            labelfruta.appendChild(spanfruta);             
-            lifruta.setAttribute('class','litwo');
-            ulfruta.appendChild(lifruta);
-        }
-            ulfruta.setAttribute('class','coltwo');
-            sectionfruta.appendChild(ulfruta);
-            tagmain.appendChild(sectionfruta);
-
-
-/// SEÇÃO DE COBERTURAS ///
-        let sectioncobertura = document.createElement('section');
-        let titlecobertura = document.createElement('h2');
-        let desccobertura = document.createElement('p');
-            desccobertura.innerHTML = "Escolha até 2 coberturas";
-
-            titlecobertura.innerHTML = `Cobertura da ${qtdPedido('desc')[pd]}`;
-            sectioncobertura.appendChild(titlecobertura);
-            sectioncobertura.appendChild(desccobertura);
-            
-        let ulcobertura = document.createElement('ul');
-
-        for(let cob=0; cob<coberturas.length; cob++){
-/// LAÇO DE CRIAÇÃO DE LISTA DAS COBERTURAS ///
-        let licobertura = document.createElement('li');
-            selcobertura = document.createElement('input');
-            selcobertura.setAttribute('type','checkbox');
-            titlecobertura.setAttribute('id',`cobertura-${formaText('juntar',qtdPedido('desc')[pd]+'-'+[pd])}`);
-            selcobertura.setAttribute('name',`cobertura-${formaText('juntar',qtdPedido('desc')[pd]+'-'+[pd])}`);
-            selcobertura.setAttribute('id',`${formaText('juntar',coberturas[cob]+[pd])}`);          
-            selcobertura.setAttribute('value',`${coberturas[cob]}`);          
-            selcobertura.setAttribute('onclick',`selectRadio(this)`);
-            licobertura.appendChild(selcobertura);
-            labelcobertura = document.createElement('label');
-            labelcobertura.setAttribute('for',`${formaText('juntar',coberturas[cob]+[pd])}`);
-            licobertura.appendChild(labelcobertura);
-            spancobertura = document.createElement('span');         
-            spancobertura.innerHTML = coberturas[cob];  
-            labelcobertura.appendChild(spancobertura);             
-            licobertura.setAttribute('class','litwo');
-            ulcobertura.appendChild(licobertura);
-        }
-            ulcobertura.setAttribute('class','coltwo')
-            sectioncobertura.appendChild(ulcobertura);
-            tagmain.appendChild(sectioncobertura);
-
-/// SEÇÃO DE PLUS+ ///
-    if(qtdPedido('desc')[pd] === "Barca de 1L" || qtdPedido('desc')[pd] === "Roleta de 1L"){
-        let sectionplus = document.createElement('section');
-        let titleplus = document.createElement('h2');
-        let descplus = document.createElement('p');
-            descplus.innerHTML = "Escolha 1 Plus+";
-            descbase.innerHTML = "Escolha até 3 bases";
-            descfruta.innerHTML = "Escolha até 2 frutas";
-            titleplus.innerHTML = `Plus+ da ${qtdPedido('desc')[pd]}`;;
+        buscar('id','#cardapio').setAttribute('style','display:none');        
+        
+/// VERIFICA A QUANTIDADE DE PEDIDOS ///
+    if(qtdPedido().length > 0){   
+        for(let qtd = 0; qtd < qtdPedido().length; qtd++){
+        let q = 0;
+        let num = "";
+                       
+/// LAÇO CRIAÇÃO DOS PEDIDOS ///      
+            for(let ped = 0; ped < buscar('qtd',qtdPedido()[qtd]); ped++){
+                let describe = buscar('desc',qtdPedido()[qtd]);          
                     
-            sectionplus.appendChild(titleplus);
-            sectionplus.appendChild(descplus);
+                    switch(describe.toUpperCase()){
+                        case "TIGELA DE 300ML":                       
+                        case "TIGELA DE 500ML":
+                            op = [2,3,1,2];
+                            quant = [bases,complementos,frutas,coberturas,adicionais];               
+                            des = ["bases","complementos","frutas","coberturas","adicionais"];
+                        break;                     
+                        case "TIGELA DE 1 LITRO":
+                            op = [3,3,1,2];
+                            quant = [bases,complementos,frutas,coberturas,adicionais];               
+                            des = ["bases","complementos","frutas","coberturas","adicionais"];                    
+                        break;
+                        case "ROLETA DE 1 LITRO":
+                        case "BARCA DE 1 LITRO":
+                            op = [3,3,2,2,1];
+                            quant = [bases,complementos,frutas,coberturas,plus,adicionais];
+                            des = ["bases","complementos","frutas","coberturas","plus","adicionais"];
+                        break;
+                        case "GUARANÁ DE 300ML":
+                        case "GUARANÁ DE 500ML":
+                            op = [1,1,1];
+                            quant = [guaranas, guacobertura, guapacoca];
+                            des = ["guaranas", "guacobertura", "guapacoca"];
+                        break;
+                        case "SUCO DE 500ML":
+                        case "VITAMINA DE 500ML":
+                            op = [1];
+                            quant = [sucovit];
+                            des = ["sucovit"];
+                        break;
+                        case "CX DE SALGADOS 15UND":
+                        case "CX DE SALGADOS 30UND":
+                        case "CX DE SALGADOS 45UND":
+                        case "COMBO P":
+                        case "COMBO M":
+                        case "COMBO M COCA COLA":
+                        case "COMBO M CALABRESA":
+                        case "COMBO G":                            
+                            if(describe.toUpperCase() == "COMBO G"){
+                                op = [3,1,1,1,3];
+                            }else if(describe.toUpperCase() == "COMBO P"){
+                                op = [1,1,1,1,3];
+                            }else{                
+                                op = [2,1,1,1,3];
+                            }                         
+                            quant = [salgados,ketchup,maionese,mostarda,bebidas];
+                            des = ["salgados","ketchup","maionese","mostarda","bebidas"];
+                        break;
+                        case "BATATA DE 150G":
+                        case "BATATA DE 300G":
+                        case "BATATA DE 450G":
+                        case "BATATA ESPECIAL DE 150G":
+                        case "BATATA ESPECIAL DE 300G":
+                        case "BATATA ESPECIAL DE 450G":
+                        case "PASTEL DE FRANGO":
+                        case "PASTEL DE FRANGO COM CHEDDAR":
+                        case "PASTEL DE FRANGO COM QUEIJO":
+                        case "PASTEL DE FRANGO CATUPIRY":
+                        case "PASTEL DE CARNE DE SOL":
+                        case "PASTEL DE CARNE DE SOL COM NATA":
+                        case "PASTEL DE CARNE DE SOL COM QUEIJO":
+                        case "PASTEL DE CARNE DE SOL CATUPIRY":
+                        case "PASTEL DE PIZZA":
+                            op = [1,1,1,1,3];
+                            quant = [ketchup,maionese,mostarda,bebidas];
+                            des = ["ketchup","maionese","mostarda","bebidas"];
+                        break;
+                        case "CX DE CHURROS 15UND":
+                        case "CX DE CHURROS 30UND":
+                        case "CX DE CHURROS 45UND":
+                            op = [1];
+                            quant = [churros];
+                            des = ["churros"];
+                        break;
+                        default:
+                            console.log("Prato não encontrado!");
+                    }
+                        // INPUT PERGUNTA NOME //
+                        if(buscar('qtd',qtdPedido()[qtd]) > 1){
+                            let sectname = cEl('create','section');
+                            let titname = cEl('create','h2');
+                            let nameped = cEl('create','input');
+                            
+                                cEl('set',sectname,'class,sectname');
+                                cEl('inH',titname,`Digite o nome:`);             
+                                cEl('append',sectname,tagmain);
+                                cEl('append',titname,sectname);
+                                cEl('append',nameped,sectname);
+                                q++;
+                                if(describe.search("Guaraná") >= 0 || describe.search("Suco") >= 0 || describe.search("Pastel") >= 0 || describe.search("Combo") >= 0){
+                                    num = ` ${q}º`;
+                                    cEl('set',nameped,`type,text,name,nomepedido,placeholder,Para quem vai esse ${describe}?,onkeyup,loadName(this)`);                                  
+                                }else{
+                                    num = ` ${q}ª`;
+                                    cEl('set',nameped,`type,text,name,nomepedido,placeholder,Para quem vai essa ${describe}?,onkeyup,loadName(this)`);                                   
+                                }
+                        }
+                        
+                // LAÇO DE CRIAÇÃO SEÇÃO DE PEDIDO //
+                for(let l = 0; l < quant.length; l++){                     
+                    let sectpedido = cEl('create','section');
+                    let titlepedido = cEl('create','h2');
+                    let descpedido = cEl('create','p');
+                    let ulpedido = cEl('create','ul');                  
+                        
+                        cEl('append',sectpedido,tagmain);
+                        cEl('append',titlepedido,sectpedido);
+                        cEl('append',descpedido,sectpedido);
+                        cEl('append',ulpedido,sectpedido);
+                    
+                     // LAÇO DE CRIAÇÃO DOS ITENS DO PEDIDO //                    
+                    for(let p = 0; p < quant[l].length; p++){                 
+                        let lipedido = cEl('create','li');
+                        let spanpedido = cEl('create','span');                        
+                            cEl('inH',spanpedido,`${quant[l][p]}`);
+                        
+                        if(des[l] == "adicionais" || des[l] == "bebidas"){
+                            if(des[l] == "bebidas"){
+                                cEl('inH',titlepedido,`Bebidas para${num} ${describe}`);
+                            }else{
+                                cEl('inH',titlepedido,`Adicionais para${num} ${describe}`);
+                            }
+                            cEl('inH',descpedido,`Adicione-os!`);
+                            cEl('set',lipedido,'class,lione,style,flex-direction:row-reverse');
+                            cEl('set',ulpedido,'class,colone');
+                            cEl('set',titlepedido,`id,titadd${formaText('juntar',describe+ped+qtd)}`);
+                            cEl('inH',spanpedido,``);
+                            let descadd = cEl('create','span');
+                            cEl('set',descadd,`id,spanadd${formaText('juntar',quant[l][p]+ped+qtd)}`);
+
+                            switch(quant[l][p]){
+                                case "Baton":
+                                case "Nutella":
+                                case "Pepsi 200ml":
+                                    preco = "+ R$2,50";
+                                break;
+                                case "Água 510ml":
+                                    preco = "+ R$2,00";
+                                break;
+                                case "Coca Cola 350ml":
+                                case "Guaraná Antarctica 350ml":
+                                    preco = "+ R$4,50";
+                                break;
+                                case "Pepsi 1L":
+                                case "Guaraná Antarctica 1L":
+                                    preco = "+ R$6,00";
+                                break;
+                                default:
+                                    preco = "+ R$1,50";
+                            }                        
+                                          
+                            let pcoadd = cEl('create','p');              
+                            let spanadd = cEl('create','span');                 
+                            let menosadd = cEl('create','button');
+                            let inputadd = cEl('create','input');
+                            let maisadd = cEl('create','button');
+                            cEl('set',pcoadd,`id,pcoadd${formaText('juntar',quant[l][p]+ped+qtd)}`)
+                            cEl('inH',descadd,`${quant[l][p]}`);
+                            cEl('inH',menosadd,`<svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M198-421v-118h564v118H198Z"/></svg>`);
+                            cEl('inH',maisadd,`<svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M421-421H206v-118h215v-215h118v215h215v118H539v215H421v-215Z"/></svg>`);
+                            cEl('inH',pcoadd,`${preco}`);
+                            cEl('set',spanadd,`style,display:flex;align-items:center`);
+                            cEl('set',menosadd,`style,display:none,class,menosadd,id,${'-add'+formaText('juntar',quant[l][p]+ped+qtd)},onclick,checkQtd('${'-add'+formaText('juntar',quant[l][p]+ped+qtd)}')`);
+                            cEl('set',inputadd,`style,display:none,type,text,value,0,disabled,true,id,add${formaText('juntar',quant[l][p]+ped+qtd)},name,add${formaText('juntar',describe+ped+qtd)}`);
+                            cEl('set',maisadd,`class,maisadd,onclick,checkQtd('${'+add'+formaText('juntar',quant[l][p]+ped+qtd)}')`);
+                            
+                            cEl('append',spanadd,lipedido);
+                            cEl('append',menosadd,spanadd);
+                            cEl('append',inputadd,spanadd);
+                            cEl('append',maisadd,spanadd);
+                            cEl('append',spanpedido,lipedido);
+                            cEl('append',descadd,spanpedido);
+                            cEl('append',pcoadd,spanpedido);
+                            
+                        }                                
+                        else{
+                            cEl('set',lipedido,'class,litwo');
+                            cEl('set',ulpedido,'class,coltwo');
+                        
+                            let inputpedido = cEl('create','input');
+                            let labelpedido = cEl('create','label');
+                                            
+                            cEl('append',inputpedido,lipedido);
+                            cEl('set',inputpedido,`id,${quant[l][p]+ped+qtd},type,checkbox,value,${quant[l][p]},max,${op[l]},onclick,selectRadio(this)`);
+                            cEl('set',labelpedido,`for,${quant[l][p]+ped+qtd}`);
+                            cEl('append',labelpedido,lipedido);
+                            cEl('append',spanpedido,labelpedido);
+                            let opcao = "";
+                                if(op[l] > 1){
+                                    opcao += `Escolha até ${op[l]} opções`;
+                                }else{
+                                    opcao += `Escolha ${op[l]} opção`;
+                                }
+                        if(des[l] == "bases"){
+                            cEl('set',titlepedido,`id,base-${formaText('juntar',describe)}-${ped+qtd}`);
+                            cEl('inH',titlepedido,`Base da${num} ${describe}`);                            
+                            cEl('set',inputpedido,`name,base-${formaText('juntar',describe)}-${ped+qtd}`);                    
+                        }
+                        if(des[l] == "complementos"){
+                            cEl('set',titlepedido,`id,complemento-${formaText('juntar',describe)}-${ped+qtd}`);
+                            cEl('inH',titlepedido,`Complementos da${num} ${describe}`);                
+                            cEl('set',inputpedido,`name,complemento-${formaText('juntar',describe)}-${ped+qtd}`);
+                        }
+                        if(des[l] == "frutas"){
+                            cEl('set',titlepedido,`id,fruta-${formaText('juntar',describe)}-${ped+qtd}`);
+                            cEl('inH',titlepedido,`Fruta da${num} ${describe}`);                       
+                            cEl('set',inputpedido,`name,fruta-${formaText('juntar',describe)}-${ped+qtd}`);
+                        }
+                        if(des[l] == "coberturas"){                            
+                            cEl('set',titlepedido,`id,cobertura-${formaText('juntar',describe)}-${ped+qtd}`);
+                            cEl('inH',titlepedido,`Cobertura da${num} ${describe}`);                   
+                            cEl('set',inputpedido,`name,cobertura-${formaText('juntar',describe)}-${ped+qtd}`);
+                        }
+                        if(des[l] == "plus"){
+                            cEl('set',titlepedido,`id,plus-${formaText('juntar',describe)}-${ped+qtd}`);
+                            cEl('inH',titlepedido,`Plus da${num} ${describe}`);                    
+                            cEl('set',inputpedido,`name,plus-${formaText('juntar',describe)}-${ped+qtd}`);
+                        }
+                        if(des[l] == "guaranas"){
+                            cEl('set',titlepedido,`id,sabor-${formaText('juntar',describe)}-${ped+qtd}`);
+                            cEl('inH',titlepedido,`Sabor do${num} ${describe}`);                       
+                            cEl('set',inputpedido,`name,sabor-${formaText('juntar',describe)}-${ped+qtd}`);
+                        }
+                        if(des[l] == "guacobertura"){
+                            cEl('set',titlepedido,`id,guacobertura-${formaText('juntar',describe)}-${ped+qtd}`);
+                            cEl('inH',titlepedido,`Cobertura do${num} ${describe}`);                   
+                            cEl('set',inputpedido,`name,guacobertura-${formaText('juntar',describe)}-${ped+qtd}`);
+                        }
+                        if(des[l] == "guapacoca"){
+                            cEl('set',titlepedido,`id,guapacoca-${formaText('juntar',describe)}-${ped+qtd}`);
+                            cEl('inH',titlepedido,`Paçoca do${num} ${describe}`);                     
+                            cEl('set',inputpedido,`name,guapacoca-${formaText('juntar',describe)}-${ped+qtd}`);
+                        }
+                        if(des[l] == "sucovit"){       
+                            cEl('set',titlepedido,`id,sabor-${formaText('juntar',describe)}-${ped+qtd}`);
+                            if(describe.substring(0,4) == "Suco"){
+                                cEl('inH',titlepedido,`Sabor do${num} ${describe}`);
+                            }else{
+                                cEl('inH',titlepedido,`Sabor da${num} ${describe}`);
+                            }
+                                                        
+                            cEl('set',inputpedido,`name,sabor-${formaText('juntar',describe)}-${ped+qtd}`);
+                        }
+                        if(des[l] == "salgados"){
+                            cEl('set',titlepedido,`id,recheio-${formaText('juntar',describe)}-${ped+qtd}`);
+                            cEl('inH',titlepedido,`Salgados do${num} ${describe}`);                            
+                            cEl('set',inputpedido,`name,recheio-${formaText('juntar',describe)}-${ped+qtd}`);
+                        }
+                        if(des[l] == "ketchup"){
+                            cEl('set',titlepedido,`id,ketchup-${formaText('juntar',describe)}-${ped+qtd}`);
+                            cEl('inH',titlepedido,`Ketchup para${num} ${describe}`);                          
+                            cEl('set',inputpedido,`name,ketchup-${formaText('juntar',describe)}-${ped+qtd}`);
+                        }
+                        if(des[l] == "maionese"){
+                            cEl('set',titlepedido,`id,maionese-${formaText('juntar',describe)}-${ped+qtd}`);
+                            cEl('inH',titlepedido,`Maionese para${num} ${describe}`);                         
+                            cEl('set',inputpedido,`name,maionese-${formaText('juntar',describe)}-${ped+qtd}`);
+                        }
+                        if(des[l] == "mostarda"){
+                            cEl('set',titlepedido,`id,mostarda-${formaText('juntar',describe)}-${ped+qtd}`);
+                            cEl('inH',titlepedido,`Mostarda para${num} ${describe}`);                         
+                            cEl('set',inputpedido,`name,mostarda-${formaText('juntar',describe)}-${ped+qtd}`);
+                        }
+                        if(des[l] == "churros"){
+                            cEl('set',titlepedido,`id,recheio-${formaText('juntar',describe)}-${ped+qtd}`);
+                            cEl('inH',titlepedido,`Recheio para${num} ${describe}`);                          
+                            cEl('set',inputpedido,`name,recheio-${formaText('juntar',describe)}-${ped+qtd}`);
+                        }
+                        
+                        cEl('inH',descpedido,opcao);
+                        
+                        }//END IF OPÇOES DO PEDIDO                        
+                        cEl('append',lipedido,ulpedido);                                         
+                        
+                    }// END FOR ITEM PEDIDO  
+                }// END FOR SEÇÃO DE PEDIDO             
+            }// END FOR QUANTIDADE PEDIDO
+        }// END FOR DESCRIÇÃO PEDIDO
     
-        let ulplus = document.createElement('ul');
+    // BOTÃO DE GERAR PEDIDO //
+    let btgenerate = document.createElement('a');
+        btgenerate.innerHTML = "ENVIAR PEDIDO";
+        btgenerate.setAttribute('id','whats');
+        btgenerate.setAttribute('target','_blank');
+        btgenerate.addEventListener('click', function(){
+            setTimeout(function(){
+                location.href = "index.html"
+            }, 1000);            
+        });
 
-        for(let p=0; p<plus.length; p++){
-/// LAÇO DE CRIAÇÃO DE LISTA DOS PLUS+ ///
-        let liplus = document.createElement('li');
-            selplus = document.createElement('input');
-            selplus.setAttribute('type','checkbox');
-            titleplus.setAttribute('id',`plus-${formaText('juntar',qtdPedido('desc')[pd]+'-'+[pd])}`);
-            selplus.setAttribute('name',`plus-${formaText('juntar',qtdPedido('desc')[pd]+'-'+[pd])}`);
-            selplus.setAttribute('id',`${formaText('juntar',plus[p]+[pd])}`);          
-            selplus.setAttribute('value',`${plus[p]}`);          
-            selplus.setAttribute('onclick',`selectRadio(this)`);
-            liplus.appendChild(selplus);
-            labelplus = document.createElement('label');
-            labelplus.setAttribute('for',`${formaText('juntar',plus[p]+[pd])}`);
-            liplus.appendChild(labelplus);
-            spanplus = document.createElement('span');             
-            spanplus.innerHTML = plus[p];  
-            labelplus.appendChild(spanplus);             
-            liplus.setAttribute('class','litwo');
-            ulplus.appendChild(liplus);
-        }
-            ulplus.setAttribute('class','coltwo');
-            sectionplus.appendChild(ulplus);
-            tagmain.appendChild(sectionplus);
-    }
-
-/// SEÇÃO DE ADICIONAIS ///
-        let sectionadicional = document.createElement('section');
-        let titleadicional = document.createElement('h2');
-        let descadicional = document.createElement('p');
-            descadicional.innerHTML = "Quer mais complementos? Selecione-os!"
-            titleadicional.innerHTML = `Adicionais da ${qtdPedido('desc')[pd]}`;            
-        
-            sectionadicional.appendChild(titleadicional);
-            sectionadicional.appendChild(descadicional);
-    
-        let uladicional = document.createElement('ul');
-
-        let preco = "";
-
-        for(let ad=0; ad<adicionais.length; ad++){
-/// LAÇO DE CRIAÇÃO DE LISTA DOS ADICIONAIS ///
-        let liadicional = document.createElement('li');
-            spanadicional = document.createElement('span');
-            titleadicional.setAttribute('id',`titadd${[pd]}`);
-            spanadicional.setAttribute('id',`titadd${formaText('juntar',adicionais[ad]+[pd]+[ad])}`);
-            spanadicional.innerHTML = adicionais[ad];
-            liadicional.appendChild(spanadicional);
-            respanadd = document.createElement('span');
-            respanadd.setAttribute('style','display:flex');
-            respanadd.setAttribute('id','respanadd'+[pd]+[ad]);
-            liadicional.appendChild(respanadd);
-            btmenosad = document.createElement('button');
-            btmenosad.setAttribute('class',`menosadd`);
-            btmenosad.setAttribute('id',`${formaText('juntar','-add'+adicionais[ad]+[pd]+ad)}`);
-            btmenosad.setAttribute('onclick',`checkQtd('${formaText('juntar','-add'+adicionais[ad]+[pd]+[ad])}')`);
-            btmenosad.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M198-421v-118h564v118H198Z"/></svg>`;
-            btmenosad.setAttribute('style','display:none');
-            respanadd.appendChild(btmenosad);
-            resinputad = document.createElement('input');
-            resinputad.setAttribute('type','text');
-            resinputad.setAttribute('value',0);
-            resinputad.setAttribute('name',`titadd${[pd]}`);
-            resinputad.setAttribute('id',`${formaText('juntar','add'+adicionais[ad]+[pd]+[ad])}`);
-            resinputad.value = 0;
-            resinputad.disabled = true;
-            resinputad.setAttribute('style','display:none');
-            respanadd.appendChild(resinputad);
-            btmaisad = document.createElement('button');
-            btmaisad.setAttribute('class',`maisadd`);
-            btmaisad.setAttribute('onclick',`checkQtd('${formaText('juntar','+add'+adicionais[ad]+[pd]+[ad])}')`);
-            btmaisad.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M421-421H206v-118h215v-215h118v215h215v118H539v215H421v-215Z"/></svg>`;
-            respanadd.appendChild(btmaisad);
-            liadicional.setAttribute('class','lione');
-            if(adicionais[ad].search('Baton') >= 0 || adicionais[ad].search('Nutella') >= 0){
-                preco = "+ R$2,50";
-            }else{
-                preco = "+ R$1,50";
-            }
-            pcoadd = document.createElement('p');
-            pcoadd.innerHTML = preco;
-            spanadicional.appendChild(pcoadd);
-            uladicional.appendChild(liadicional);
-        }
-            uladicional.setAttribute('class','colone');
-            sectionadicional.appendChild(uladicional);
-            tagmain.appendChild(sectionadicional);
-            
+        tagmain.appendChild(btgenerate);
+        window.scrollTo(0, 0);
+    }// END IF VERIFICADOR DE PEDIDO
+    }// END FUNCTION NEW PEDIDO
+    function loadName(iname){
+        if(iname.value.trim()){
+            iname.setAttribute('class','send');
         }else{
-/// SEÇÃO DE GUARANÁ DO AMAZONAS /// 
-
-        let sectionguarana = document.createElement('section');
-        if(qtdPedido('desc').length>1){
-        let inputnamegua = document.createElement('input');
-            inputnamegua.setAttribute('placeholder',`Para quem vai esse ${qtdPedido('desc')[pd]}?`);
-            inputnamegua.setAttribute('id',`nome${formaText('juntar',qtdPedido('desc')[pd]+'-'+[pd])}`);
-            inputnamegua.setAttribute('name','nomepedido');
-            inputnamegua.setAttribute('class','send');
-            inputnamegua.setAttribute('onkeyup','loadName(this)');
-            sectionguarana.appendChild(inputnamegua);
+            iname.removeAttribute('class','send');
         }
-            
-        let titleguarana = document.createElement('h2');
-            titleguarana.innerHTML = `Preparo do ${qtdPedido('desc')[pd]}`;                    
-            sectionguarana.appendChild(titleguarana);
-            
-        let ulguarana = document.createElement('ul');
-
-        for(let gua=0; gua<guaranas.length; gua++){
-/// LAÇO DE CRIAÇÃO DE LISTA DOS SABORES DOS GUARANÁS ///
-        let liguarana = document.createElement('li');
-            selguarana = document.createElement('input');
-            selguarana.setAttribute('type','checkbox');
-            titleguarana.setAttribute('id',`sabor-${formaText('juntar',qtdPedido('desc')[pd]+'-'+[pd])}`);
-            selguarana.setAttribute('name',`sabor-${formaText('juntar',qtdPedido('desc')[pd]+'-'+[pd])}`);
-            selguarana.setAttribute('id',`${formaText('juntar',guaranas[gua]+[pd])}`);          
-            selguarana.setAttribute('value',`Sabor ${guaranas[gua]}`);          
-            selguarana.setAttribute('onclick',`selectRadio(this)`);
-            liguarana.appendChild(selguarana);
-            labelguarana = document.createElement('label');
-            labelguarana.setAttribute('for',`${formaText('juntar',guaranas[gua]+[pd])}`);
-            liguarana.appendChild(labelguarana);
-            spanguarana = document.createElement('span');             
-            spanguarana.innerHTML = guaranas[gua];  
-            labelguarana.appendChild(spanguarana);             
-            liguarana.setAttribute('class','litwo');
-            ulguarana.appendChild(liguarana);
-        }
-            ulguarana.setAttribute('class','coltwo');
-            sectionguarana.appendChild(ulguarana);
-
-/// 1ª OPÇÃO DO GUARANÁ
-        let sectionguaraoption = document.createElement('section');
-        let titleguaraoption = document.createElement('h2');
-            titleguaraoption.innerHTML = `Cobertura do ${qtdPedido('desc')[pd]}`;
-        
-            sectionguaraoption.setAttribute('id',`section-${formaText('juntar',qtdPedido('desc')[pd]+'-'+[pd])}`);
-            sectionguaraoption.setAttribute('style',`display:none`);
-
-            titleguaraoption.setAttribute('id',`guacob-${formaText('juntar',qtdPedido('desc')[pd]+'-'+[pd])}`);
-            sectionguaraoption.appendChild(titleguaraoption);
-            
-        let ulguaraoption = document.createElement('ul');
-        
-        for(let gc=0; gc<guaraoptions1.length; gc++){
-/// LAÇO DE CRIAÇÃO DE LISTA DAS OPÇÕES DOS GUARANÁS ///
-        let liguaraoption = document.createElement('li');
-            selguaraoption = document.createElement('input');
-            selguaraoption.setAttribute('type','checkbox');
-            selguaraoption.setAttribute('name',`guacob-${formaText('juntar',qtdPedido('desc')[pd]+'-'+[pd])}`);
-            selguaraoption.setAttribute('id',`${formaText('juntar',guaraoptions1[gc]+[pd])}`);          
-            selguaraoption.setAttribute('value',`${guaraoptions1[gc]}`);          
-            selguaraoption.setAttribute('onclick',`selectRadio(this)`);
-            liguaraoption.appendChild(selguaraoption);
-            labelguaraoption = document.createElement('label');
-            labelguaraoption.setAttribute('for',`${formaText('juntar',guaraoptions1[gc]+[pd])}`);
-            liguaraoption.appendChild(labelguaraoption);
-            spanguaraoption = document.createElement('span');             
-            spanguaraoption.innerHTML = guaraoptions1[gc];  
-            labelguaraoption.appendChild(spanguaraoption);             
-            liguaraoption.setAttribute('class','litwo');
-            ulguaraoption.appendChild(liguaraoption);
-        }
-            ulguaraoption.setAttribute('class','coltwo');
-            sectionguaraoption.appendChild(ulguaraoption);
-
-/// 2ª OPÇÃO DO GUARANÁ
-        let sectionguaraoption2 = document.createElement('section');
-        let titleguaraoption2 = document.createElement('h2');   
-            titleguaraoption2.innerHTML = `Complemento do ${qtdPedido('desc')[pd]}`; 
-            titleguaraoption2.setAttribute('id',`guapac-${formaText('juntar',qtdPedido('desc')[pd]+'-'+[pd])}`);
-            sectionguaraoption2.appendChild(titleguaraoption2);
-        
-        let ulguaraoption2 = document.createElement('ul');
-        
-
-            for(let gp=0; gp<guaraoptions2.length; gp++){
-/// LISTA DA SEGUNDA OPÇÃO ///
-        let liguaraoption2 = document.createElement('li');
-            selguaraoption2 = document.createElement('input');
-            selguaraoption2.setAttribute('type','checkbox');
-            selguaraoption2.setAttribute('name',`guapac-${formaText('juntar',qtdPedido('desc')[pd]+'-'+[pd])}`);
-            selguaraoption2.setAttribute('id',`${formaText('juntar',guaraoptions2[gp]+[pd])}`);          
-            selguaraoption2.setAttribute('value',`${guaraoptions2[gp]}`);          
-            selguaraoption2.setAttribute('onclick',`selectRadio(this)`);
-            liguaraoption2.appendChild(selguaraoption2);
-            labelguaraoption2 = document.createElement('label');
-            labelguaraoption2.setAttribute('for',`${formaText('juntar',guaraoptions2[gp]+[pd])}`);
-            liguaraoption2.appendChild(labelguaraoption2);
-            spanguaraoption2 = document.createElement('span');             
-            spanguaraoption2.innerHTML = guaraoptions2[gp];  
-            labelguaraoption2.appendChild(spanguaraoption2);             
-            liguaraoption2.setAttribute('class','litwo');            
-            ulguaraoption2.appendChild(liguaraoption2);
-        }
-            ulguaraoption2.setAttribute('class','coltwo');
-            sectionguaraoption2.appendChild(ulguaraoption2);
-
-            tagmain.appendChild(sectionguarana);
-            tagmain.appendChild(sectionguaraoption);          
-            tagmain.appendChild(sectionguaraoption2);
-
-        }
-        
-        }// END FOR        
-                   
-// BOTÃO DE GERAR PEDIDO //
-        let btgenerate = document.createElement('button');
-            btgenerate.innerHTML = "GERAR PEDIDO";
-            btgenerate.setAttribute('id','bt-generate');
-            btgenerate.setAttribute('onclick','sendPedido()');
-
-            tagmain.appendChild(btgenerate);
-            window.scrollTo(0, 0);
+        descP()
     }
-
-    function loadName(n = ""){        
-
-        if(n.nodeName == 'INPUT'){
-            let vname = n.value;
-            let idn = n.id;
-            let optname = idn.substring(5);
-            let endname = idn.charAt(idn.length-1);
-            let newname = vname.trim();
-            let newoptname = "";
-            if(newname.length > 0){
-                newname = " de "+capitalize(newname);
-            }                      
-
-            if(idn.search('tigela') >= 0 || idn.search('barca') >= 0 || idn.search('roleta')){
-                newoptname = formaText("separar",optname);
-
-                document.getElementById(`base-${optname}`).innerText = `Base da ${newoptname} ${newname}`;
-                document.getElementById(`complemento-${optname}`).innerText = `Complementos da ${newoptname} ${newname}`;
-                document.getElementById(`fruta-${optname}`).innerText = `Fruta da ${newoptname} ${newname}`;
-                document.getElementById(`cobertura-${optname}`).innerText = `Cobertura da ${newoptname} ${newname}`;
-                document.getElementById(`titadd${endname}`).innerText = `Adicionais da ${newoptname} ${newname}`;
-                if(idn.search('barca') >= 0){
-                    document.getElementById(`plus-${optname}`).innerText = `Plus+ da ${newoptname} ${newname}`;
+    function cEl(com, el, act){
+        switch(com){
+            case "create":
+                return document.createElement(el);
+                break;
+            case "append":
+                act.appendChild(el);
+                break;
+            case "inH":
+                el.innerHTML = act;
+                break;
+            case "set":
+                atr = act.split(",");
+                for(let i = 0; i < atr.length; i++){
+                    el.setAttribute(atr[i], atr[i+1]);
+                    i++
+                }
+                break;
+            case "rem":
+            atr = act.split(",");
+                for(let i = 0; i < atr.length; i++){
+                    el.removeAttribute(atr[i], atr[i+1]);
+                    i++
+                }
+                break;
+            default:
+                console.log('Elemento inválido!');
+        }
+    }
+    function monetize(valor){
+        if(valor == 0){
+            return 'R$ 0,00'	
+        }
+        else{
+            valor*=100;
+            valor = Math.ceil(valor);
+            valor += "";
+            let real = valor.substring(0, valor.length-2);
+            let centavos = valor.substring(valor.length-2);
+            valor = `R$${real},${centavos}`;            
+            return valor;
+        }
+	}
+    function formaText(opt,tx){
+        if(opt==="juntar"){
+        let separe = tx.toLowerCase().split(" ");
+        // let txsepare = txmin.split(" ");
+        let newtx = "";
+        
+            if(separe.length > 1){
+                for(let t = 0; t < separe.length; t++){
+                    newtx += separe[t];                    
+                }
+                return newtx;
+            }
+            return separe;
+        }
+    }
+    function buscar(b, opt){
+        let myarray = opt.split(" ");
+        let newtext = "";
+            for(let d = 1; d < myarray.length; d++){
+                if(d == 1){
+                    newtext += myarray[d];
+                }else{
+                    newtext += ` ${myarray[d]}`;
                 }
             }
-            if(idn.search('guara') >= 0){
-                optname = idn.substring(4);
-                newoptname = formaText("separar",optname);
-
-                document.getElementById(`sabor-${optname}`).innerText = `Preparo do ${newoptname} ${newname}`;
-                document.getElementById(`guacob-${optname}`).innerText = `Cobertura do ${newoptname} ${newname}`;
-                document.getElementById(`guapac-${optname}`).innerText = `Complemento do ${newoptname} ${newname}`;
-            }
+                        
+        switch(b){
+            case "desc":
+                return newtext;
+            break;
+            case "qtd":
+                return myarray[0];
+            break;
+            case "id":
+                id = document.querySelector(opt);
+                return id;
+            break;
+            case "valor":
+                valor = document.querySelector(opt).value;
+                return valor;
+            default:
+                console.log('Não foi possível encontrar!');
         }        
-    }
-
-    function capitalize(texto){
-        return texto.charAt(0).toUpperCase() + texto.slice(1);
-    }
-    
+    }  
 </script>
 </body>
 </html>
